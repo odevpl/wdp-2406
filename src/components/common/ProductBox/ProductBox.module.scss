@@ -85,6 +85,21 @@
   }
 }
 
+<<<<<<< HEAD
 .buttonActive {
   background-color: $primary;
+=======
+.price {
+  display: flex;
+
+  .oldPrice{
+    font-size: 16px;
+    color: $text-color;
+    margin: auto 5px;
+    text-decoration: line-through;
+    text-decoration-color: $primary;
+    text-decoration-thickness: 2px;
+    
+  }
+>>>>>>> bb1a3e1 (add oldPrice to ProductBox.js)
 }
