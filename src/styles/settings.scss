@@ -1,13 +1,26 @@
 $base-padding: 24px;
 
+// COLOR PALLETTE
+$primary: #d58e32;
+$dark-grey: #2a2a2a;
+$dark-grey-2: #292929;
+$white: #ffffff;
+$off-white: #f4f5f7;
+$beige-grey: #e1e1e1;
+$grey: #b6b6b6;
+$beige-yellow: #e2e2e2;
+$rgb-dark: rgb(42, 42, 42);
+$rgb-light: rgb(224, 227, 237);
+$rgb-light-grey: rgb(216, 216, 216);
+$rgb-light-grey-2: rgb(169, 169, 169);
+
+$teal-tint: rgba(1, 2, 2, 0.2);
+
+// COMPONENT & ELEMENT COLORS
+$text-color: #2a2a2a;
+$form-border-color: #292929;
+
 $header-topbar-bg: #434343;
 $header-bg: #363636;
-
 $footer-claim-bg: #2a2a2a;
 $footer-bg: #363636;
-
-$primary: #d58e32;
-
-$text-color: #2a2a2a;
-
-$form-border-color: #292929;
