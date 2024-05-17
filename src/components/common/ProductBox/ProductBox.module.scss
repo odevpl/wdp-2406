@@ -31,7 +31,12 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+      visibility: hidden;
     }
+  }
+
+  &:hover .photo .buttons {
+    visibility: visible;
   }
 
   .content {
