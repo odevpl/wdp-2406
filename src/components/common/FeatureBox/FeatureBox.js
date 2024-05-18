@@ -4,24 +4,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './FeatureBox.module.scss';
 import { useState } from 'react';
 
-const FeatureBox = ({ icon, link, children }) => {
+const FeatureBox = ({ icon, target, children }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const scrollToAnchor = targetId => {
     var element = document.getElementById(targetId);
+    console.log('ELEMENT', element);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
-  if (!link) link = '';
+  if (!target) target = '';
 
   return (
     <div
       className={styles.root + (isHovered ? ' ' + styles.active : '')}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => scrollToAnchor(link)}
+      onClick={() => scrollToAnchor(target)}
     >
       {icon && (
         <div className={styles.iconWrapper}>
@@ -36,7 +37,7 @@ const FeatureBox = ({ icon, link, children }) => {
 FeatureBox.propTypes = {
   children: PropTypes.node,
   icon: PropTypes.object,
-  link: PropTypes.string,
+  target: PropTypes.string,
 };
 
 export default FeatureBox;
