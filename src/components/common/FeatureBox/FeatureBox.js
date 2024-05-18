@@ -9,7 +9,6 @@ const FeatureBox = ({ icon, target, children }) => {
 
   const scrollToAnchor = targetId => {
     var element = document.getElementById(targetId);
-    console.log('ELEMENT', element);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
