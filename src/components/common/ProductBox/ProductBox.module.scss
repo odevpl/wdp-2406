@@ -31,7 +31,12 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+      visibility: hidden;
     }
+  }
+
+  &:hover .photo .buttons {
+    visibility: visible;
   }
 
   .content {
@@ -74,5 +79,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  &:hover .price > * {
+    background-color: $primary;
   }
 }
