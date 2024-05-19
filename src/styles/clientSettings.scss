@@ -1,0 +1,50 @@
+/*
+YOU CAN CHANGE VALUES OF VARIABLES BELOW
+DONT CHANGE VARIABLE NAMES OR ANYTHING ELSE
+
+example:
+ variable=> $transition   250ms <=value
+
+*/
+
+$transition: 250ms;
+$transform: initial;
+
+$box-shadow: initial;
+$opacity: 1;
+$text-decoration: initial;
+$filter: none;
+
+//DON'T CHANGE ANYTHING BELOW THIS LINE:
+
+.hover-settings {
+    transition: $transition;
+    transform: $transform;
+
+    &:hover {
+        box-shadow: $box-shadow;
+        opacity: $opacity;
+        text-decoration: $text-decoration;
+        filter: $filter;
+    };
+};
+
+/* 
+
+HOW TO APPLY .hover-settings TO A CLASS:
+
+1. add following code to the top of the .scss file you want to apply hover settings to:
+    @import '../../../styles/clientSettings.scss';
+
+2. add following code to the class you want to apply hover settings to
+    @extend .hover-settings;
+
+*/
+
+
+
+
+
+
+
+
