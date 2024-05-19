@@ -13,19 +13,16 @@ $rgb-dark: rgb(42, 42, 42);
 $rgb-light: rgb(224, 227, 237);
 $rgb-light-grey: rgb(216, 216, 216);
 $rgb-light-grey-2: rgb(169, 169, 169);
+$primary: #d58e32;
 
 $teal-tint: rgba(1, 2, 2, 0.2);
 
+$test-color: rgb(255, 0, 200);
 // COMPONENT & ELEMENT COLORS
 $text-color: #2a2a2a;
 $form-border-color: #292929;
 
-$header-topbar-bg: #434343;
-$header-bg: #363636;
-$footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
-
-$primary: #d58e32;
+// $header-topbar-bg: $test-color;
 
 $text-color: #2a2a2a;
 
@@ -41,6 +38,39 @@ $button-border-color: #2a2a2a;
 $feature-box-text-color: rgb(42, 42, 42);
 $feature-box-bg-color: #ffffff;
 $feature-box-border-color: #b6b6b6;
-$feature-box-bg-active-color: black;
+$feature-box-bg-active-color: $primary;
 $feature-box-border-active-color: $primary;
-$feature-box-text-active-color: $primary;
+$feature-box-text-active-color: rgb(42, 42, 42);
+$feature-box-icon-active-color: #ffffff;
+
+$footer-claim-bg: #2a2a2a;
+$footer-claim-text: rgb(169, 169, 169);
+$footer-claim-social-text: rgb(169, 169, 169);
+$footer-claim-social-hover-text: $primary;
+
+$footer-bg: #363636;
+$footer-menu-header-text-color: #ffffff;
+$footer-menu-item-text-color: rgb(169, 169, 169);
+$footer-menu-item-hover-text-color: #ffffff;
+
+$header-bg-color: #363636;
+$header-phone-number-text-color: rgb(216, 216, 216);
+$header-phone-number-icon-color: $primary;
+$header-cart-text-color: #ffffff;
+$header-cart-icon-color: #ffffff;
+$header-cart-icon-bg-color: $primary;
+
+$header-topbar-bg: #434343;
+$header-topbar-text-color: #ffffff;
+$header-topbar-hover-text-color: $primary;
+
+$menubar-bg-color: $white;
+$menubar-text-color: black;
+$menubar-border-color: $white;
+$menubar-boxshadow: rgba(1, 2, 2, 0.2);
+$menubar-link-border-color: white;
+$menubar-link-text-color: $text-color;
+$menubar-link-hover-text-color: $white;
+$menubar-link-hover-bg-color: $primary;
+$menubar-link-hover-border-color: $primary;
+$menubar-link-hover-active-color: $text-color;
