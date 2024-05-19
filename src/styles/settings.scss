@@ -2,75 +2,85 @@ $base-padding: 24px;
 
 // COLOR PALLETTE
 $primary: #d58e32;
+$black: #000000;
 $dark-grey: #2a2a2a;
-$dark-grey-2: #292929;
+$darker-grey: #363636;
 $white: #ffffff;
-$off-white: #f4f5f7;
-$beige-grey: #e1e1e1;
 $grey: #b6b6b6;
-$beige-yellow: #e2e2e2;
-$rgb-dark: rgb(42, 42, 42);
-$rgb-light: rgb(224, 227, 237);
-$rgb-light-grey: rgb(216, 216, 216);
-$rgb-light-grey-2: rgb(169, 169, 169);
 $primary: #d58e32;
-
 $teal-tint: rgba(1, 2, 2, 0.2);
 
 $test-color: rgb(255, 0, 200);
+
 // COMPONENT & ELEMENT COLORS
-$text-color: #2a2a2a;
-$form-border-color: #292929;
+$form-border-color: $dark-grey;
+$form-border-color: $dark-grey;
+$form-searchbox-text-color: $dark-grey;
+$form-searchbox-placeholder-text-color: $dark-grey;
+$form-searchbox-icon-text-color: $primary;
 
-// $header-topbar-bg: $test-color;
-
-$text-color: #2a2a2a;
-
-$form-border-color: #292929;
-
-$button-bg-color: #2a2a2a;
-$button-color: #ffffff;
+$button-bg-color: $dark-grey;
+$button-color: $white;
 $button-bg-hover-color: $primary;
-$button-outline-color: #2a2a2a;
-$button-bg-color: #2a2a2a;
-$button-border-color: #2a2a2a;
+$button-outline-color: $dark-grey;
+$button-bg-color: $dark-grey;
+$button-border-color: $dark-grey;
 
-$feature-box-text-color: rgb(42, 42, 42);
-$feature-box-bg-color: #ffffff;
-$feature-box-border-color: #b6b6b6;
+$feature-box-text-color: $dark-grey;
+$feature-box-bg-color: $white;
+$feature-box-border-color: $grey;
 $feature-box-bg-active-color: $primary;
 $feature-box-border-active-color: $primary;
-$feature-box-text-active-color: rgb(42, 42, 42);
-$feature-box-icon-active-color: #ffffff;
+$feature-box-text-active-color: $dark-grey;
+$feature-box-icon-color: $dark-grey;
+$feature-box-icon-active-color: $white;
 
-$footer-claim-bg: #2a2a2a;
-$footer-claim-text: rgb(169, 169, 169);
-$footer-claim-social-text: rgb(169, 169, 169);
+$product-box-bg-color: $white;
+$product-box-border-color: $grey;
+$product-box-photo-bg-color: $white;
+$product-box-photo-sale-bg-color: $dark-grey;
+$product-box-photo-sale-text-color: $white;
+$product-box-stars-color: $dark-grey;
+$product-box-line-color: $dark-grey;
+$product-box-line-decorator-color: $primary;
+$product-box-title-color: $primary;
+$product-box-price-hover-bg-color: $primary;
+$product-box-price-bg-color: $dark-grey;
+
+$footer-bg: $darker-grey;
+$footer-claim-bg: $dark-grey;
+$footer-claim-text: $grey;
+$footer-claim-social-text: $grey;
 $footer-claim-social-hover-text: $primary;
+$footer-menu-header-text-color: $white;
+$footer-menu-item-text-color: $grey;
+$footer-menu-item-hover-text-color: $white;
 
-$footer-bg: #363636;
-$footer-menu-header-text-color: #ffffff;
-$footer-menu-item-text-color: rgb(169, 169, 169);
-$footer-menu-item-hover-text-color: #ffffff;
-
-$header-bg-color: #363636;
-$header-phone-number-text-color: rgb(216, 216, 216);
+$header-bg-color: $darker-grey;
+$header-phone-number-text-color: $grey;
 $header-phone-number-icon-color: $primary;
-$header-cart-text-color: #ffffff;
-$header-cart-icon-color: #ffffff;
+$header-cart-text-color: $white;
+$header-cart-icon-color: $white;
 $header-cart-icon-bg-color: $primary;
-
-$header-topbar-bg: #434343;
-$header-topbar-text-color: #ffffff;
+$header-topbar-bg: $dark-grey;
+$header-topbar-text-color: $white;
 $header-topbar-hover-text-color: $primary;
 
 $menubar-bg-color: $white;
-$menubar-text-color: black;
+$menubar-text-color: $black;
 $menubar-border-color: $white;
-$menubar-boxshadow: rgba(1, 2, 2, 0.2);
-$menubar-link-border-color: white;
-$menubar-link-text-color: $text-color;
+$menubar-boxshadow: $teal-tint;
+$menubar-link-border-color: $white;
+$menubar-link-text-color: $dark-grey;
 $menubar-link-hover-text-color: $white;
 $menubar-link-hover-bg-color: $primary;
 $menubar-link-hover-border-color: $primary;
-$menubar-link-hover-active-color: $text-color;
+$menubar-link-hover-active-color: $dark-grey;
+
+$panelbar-border-color: #e2e2e2;
+$panelbar-menu-item-text-color: $grey;
+$panelbar-header-text-color: $primary;
+$panelbar-menu-item-active-text-color: $primary;
+$panelbar-dots-color: $grey;
+$panelbar-dots-bg-color: $white;
+$panelbar-dots-active-color: $primary;
