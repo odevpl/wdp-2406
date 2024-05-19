@@ -12,24 +12,13 @@ import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons'
 import Button from '../Button/Button';
 import clsx from 'clsx';
 
-<<<<<<< HEAD
-const ProductBox = ({ name, price, promo, stars, image }) => (
-  <div className={styles.root}>
-    <div className={styles.photo} style={{ backgroundImage: `url(${image})` }}>
-      {promo && <div className={styles.sale}>{promo}</div>}
-      <div className={styles.buttons}>
-        <Button variant='small'>Quick View</Button>
-        <Button variant='small'>
-          <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
-        </Button>
-=======
-const ProductBox = ({ name, price, promo, stars, isFavorite, isCompare }) => {
+const ProductBox = ({ name, price, promo, stars, image, isFavorite, isCompare }) => {
   const isFavoriteActive = clsx({ [styles.buttonActive]: isFavorite });
   const isCompareActive = clsx({ [styles.buttonActive]: isCompare });
 
   return (
     <div className={styles.root}>
-      <div className={styles.photo}>
+      <div className={styles.photo} style={{ backgroundImage: `url(${image})` }}>
         {promo && <div className={styles.sale}>{promo}</div>}
         <div className={styles.buttons}>
           <Button variant='small'>Quick View</Button>
@@ -67,7 +56,6 @@ const ProductBox = ({ name, price, promo, stars, isFavorite, isCompare }) => {
             $ {price}
           </Button>
         </div>
->>>>>>> 98c79d9 (add styles to favorite/compare buttons when they are active)
       </div>
     </div>
   );
@@ -79,12 +67,9 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
-<<<<<<< HEAD
   image: PropTypes.string,
-=======
   isFavorite: PropTypes.bool,
   isCompare: PropTypes.bool,
->>>>>>> 98c79d9 (add styles to favorite/compare buttons when they are active)
 };
 
 export default ProductBox;
