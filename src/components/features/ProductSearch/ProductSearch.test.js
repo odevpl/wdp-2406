@@ -7,4 +7,8 @@ describe('Component ProductSearch', () => {
     const component = shallow(<ProductSearch />);
     expect(component).toBeTruthy();
   });
+  it('should contain a list of categories', () => {
+    const component = shallow(<ProductSearch />);
+    expect(component.exists('.category')).toEqual(true);
+  });
 });

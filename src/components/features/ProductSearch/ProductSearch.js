@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faListUl, faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
@@ -10,9 +11,15 @@ const ProductSearch = () => (
   <form action='' className={styles.root}>
     <div className={styles.category}>
       <FontAwesomeIcon className={styles.icon} icon={faListUl} />
-      <select name='' id=''>
+      <div className={styles.category_select} name='' id=''>
         <option value=''>Select a category</option>
-      </select>
+      </div>
+      <ul className={styles.category_dropdown}>
+        <li>
+          <FontAwesomeIcon className={styles.icon} icon={faListUl} />
+          <div className={styles.category_item}>Home</div>
+        </li>
+      </ul>
       <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
     </div>
     <div className={styles.searchField}>
