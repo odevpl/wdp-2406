@@ -12,7 +12,16 @@ import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons'
 import Button from '../Button/Button';
 import clsx from 'clsx';
 
-const ProductBox = ({ name, price, promo, stars, image, isFavorite, isCompare }) => {
+const ProductBox = ({
+  name,
+  price,
+  promo,
+  stars,
+  image,
+  isFavorite,
+  isCompare,
+  oldPrice,
+}) => {
   const isFavoriteActive = clsx({ [styles.buttonActive]: isFavorite });
   const isCompareActive = clsx({ [styles.buttonActive]: isCompare });
 
@@ -52,6 +61,7 @@ const ProductBox = ({ name, price, promo, stars, image, isFavorite, isCompare })
           </Button>
         </div>
         <div className={styles.price}>
+          {oldPrice ? <span className={styles.oldPrice}>${oldPrice}</span> : ''}
           <Button noHover variant='small'>
             $ {price}
           </Button>
@@ -70,6 +80,7 @@ ProductBox.propTypes = {
   image: PropTypes.string,
   isFavorite: PropTypes.bool,
   isCompare: PropTypes.bool,
+  oldPrice: PropTypes.number,
 };
 
 export default ProductBox;
