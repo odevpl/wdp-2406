@@ -16,6 +16,7 @@ import { useDispatch } from 'react-redux';
 import { toggleFavoriteProduct } from '../../../redux/productsRedux';
 
 const ProductBox = ({
+
   id,
   name,
   price,
@@ -24,6 +25,8 @@ const ProductBox = ({
   image,
   isFavorite,
   isCompare,
+  oldPrice,
+
 }) => {
   const isFavoriteActive = clsx({ [styles.buttonActive]: isFavorite });
   const isCompareActive = clsx({ [styles.buttonActive]: isCompare });
@@ -74,6 +77,7 @@ const ProductBox = ({
           </Button>
         </div>
         <div className={styles.price}>
+          {oldPrice ? <span className={styles.oldPrice}>${oldPrice}</span> : ''}
           <Button noHover variant='small'>
             $ {price}
           </Button>
@@ -93,6 +97,7 @@ ProductBox.propTypes = {
   image: PropTypes.string,
   isFavorite: PropTypes.bool,
   isCompare: PropTypes.bool,
+  oldPrice: PropTypes.number,
 };
 
 export default ProductBox;
