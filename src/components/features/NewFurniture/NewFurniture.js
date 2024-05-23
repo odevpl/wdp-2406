@@ -11,11 +11,7 @@ const NewFurniture = props => {
     setActivePage(newPage);
   };
 
-  console.log('activeCategory', activeCategory);
-
   const handleCategoryChange = newCategory => {
-    console.log('INSIDE HANDLE CATEGORY');
-
     setActiveCategory(newCategory);
   };
 
