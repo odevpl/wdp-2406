@@ -6,7 +6,7 @@ export const getCount = ({ products }) => products.length;
 export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);
 
-export const getFavorite = ({ products }) =>
+export const getFavorites = ({ products }) =>
   products.filter(item => item.isFavorite === true);
 
 /* actions */
