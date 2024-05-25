@@ -1,13 +1,18 @@
 @import "../../../styles/settings.scss";
 
+$form-border-width: 1px;
+$form-searchbox-bg-color: $white;
+$form-searchbox-hover-bg-color: $primary;
+
 .root {
-  border: 1px solid $form-border-color;
+  border: $form-border-width solid $form-border-color;
   display: inline-flex;
   height: 45px;
   color: $form-searchbox-text-color;
+  overflow: visible;
 
   .category {
-    border-right: 1px solid $form-border-color;
+    border-right: $form-border-width solid $form-border-color;
     display: flex;
     align-items: center;
     position: relative;
@@ -25,11 +30,12 @@
       z-index: 0;
     }
 
-    select {
+    .category_select {
       -webkit-appearance: none;
       font-size: 14px;
       outline: none;
       border: 0;
+      width: 190px;
       background-color: transparent;
       padding: 5px 30px 5px 35px;
       position: relative;
@@ -38,6 +44,36 @@
       &:hover {
         color: $primary;
       }
+    }
+    .category_dropdown {
+      position: absolute;
+      list-style-type: none;
+      top: 100%;
+      left: -1px;
+      width: calc(100% + 2 * $form-border-width);
+      border: 1px solid $form-border-color;
+      border-top: 0;
+      z-index: 20;
+      display: none;
+      padding: 5px 0;
+      background-color: $form-searchbox-bg-color;
+      li {
+        position: relative;
+        .icon {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        .category_item {
+          position: relative;
+          margin-left: 40px;
+          &:hover {
+            color: $form-searchbox-hover-bg-color;
+          }
+        }
+      }
+    }
+    &:hover .category_dropdown {
+      display: block;
     }
   }
 
