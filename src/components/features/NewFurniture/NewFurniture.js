@@ -61,7 +61,7 @@ const NewFurniture = props => {
   const dots = [];
   for (let i = 0; i < pagesCount; i++) {
     dots.push(
-      <li>
+      <li key={`dot-${i}`}>
         <a
           onClick={() => handlePageChange(i)}
           className={i === activePage ? styles.active : ''}
