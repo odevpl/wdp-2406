@@ -30,6 +30,7 @@ const NewFurniture = props => {
 
   const handleCategoryChange = newCategory => {
     setActiveCategory(newCategory);
+    setActivePage(0);
   };
 
   const categoryProducts = products.filter(item => item.category === activeCategory);
@@ -59,18 +60,16 @@ const NewFurniture = props => {
 
   const dots = [];
   for (let i = 0; i < pagesCount; i++) {
-    if (firstVisibleDot <= i && i <= lastVisibleDot) {
-      dots.push(
-        <li key={`dot-${i}`}>
-          <a
-            onClick={() => handlePageChange(i)}
-            className={i === activePage && styles.active}
-          >
-            page {i}
-          </a>
-        </li>
-      );
-    }
+    dots.push(
+      <li>
+        <a
+          onClick={() => handlePageChange(i)}
+          className={i === activePage ? styles.active : ''}
+        >
+          page {i}
+        </a>
+      </li>
+    );
   }
 
   return (
@@ -87,7 +86,7 @@ const NewFurniture = props => {
                   {categories.map(item => (
                     <li key={item.id}>
                       <a
-                        className={item.id === activeCategory && styles.active}
+                        className={item.id === activeCategory ? styles.active : ''}
                         onClick={() => handleCategoryChange(item.id)}
                       >
                         {item.name}
