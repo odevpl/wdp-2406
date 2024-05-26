@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import Swipeable from '../../common/Swipeable/Swipeable';
@@ -23,14 +24,23 @@ const NewFurniture = props => {
   } else if (viewport === 'desktop' && itemsPerPage !== 8) {
     setItemsPerPage(8);
   }
+  const [fade, setFade] = useState('');
 
   const handlePageChange = newPage => {
-    setActivePage(newPage);
+    setFade(styles.fadeOut);
+    setTimeout(() => {
+      setActivePage(newPage);
+      setFade(styles.fadeIn);
+    }, 500);
   };
 
   const handleCategoryChange = newCategory => {
-    setActiveCategory(newCategory);
-    setActivePage(0);
+    setFade(styles.fadeOut);
+    setTimeout(() => {
+      setActiveCategory(newCategory);
+      setActivePage(0);
+      setFade(styles.fadeIn);
+    }, 500);
   };
 
   const categoryProducts = products.filter(item => item.category === activeCategory);
@@ -100,14 +110,13 @@ const NewFurniture = props => {
               </div>
             </div>
           </div>
-          <div className='row'>
-            {categoryProducts
-              .slice(activePage * itemsPerPage, (activePage + 1) * itemsPerPage)
-              .map(item => (
-                <div key={item.id} className='col-12 col-md-6 col-lg-3'>
-                  <ProductBox {...item} />
-                </div>
-              ))}
+
+          <div className={clsx('row', styles.fade, fade)}>
+            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
+              <div key={item.id} className='col-12 col-md-6 col-lg-3'>
+                <ProductBox {...item} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
