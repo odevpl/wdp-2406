@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import ProductSearch from '../../features/ProductSearch/ProductSearch';
 import clsx from 'clsx';
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import styles from './MenuBar.module.scss';
 
 const MenuBar = ({ children }) => {
@@ -33,25 +33,31 @@ const MenuBar = ({ children }) => {
         className={name === selectedCategory ? styles.active : ''}
       >
         <a href='#' key={name}>
+          <div className={styles.hamburger}>
+            <FontAwesomeIcon icon={faBars} />{' '}
+          </div>
+
           {name}
         </a>
       </li>
     );
   };
   return (
-    <div className={clsx(styles.root, 'row')}>
-      <div className='container'>
-        <div className='row align-items-center justify-content-center'>
-          <div className={clsx('col-12', 'col-lg-6', 'order-2', 'order-lg-1')}>
+    <div className={clsx(styles.root)}>
+      <div className={styles.container}>
+        <div className='row align-items-center justify-content-center m-0'>
+          <div className={clsx('col-12', 'col-lg-5', 'order-2', 'order-lg-1')}>
             <ProductSearch />
           </div>
 
           <div
             className={clsx(
               'col-12',
-              'col-lg-6',
+              'col-lg-7',
               'order-1',
               'order-lg-2',
+              'p-0',
+              'px-sm-4',
               styles.menu,
               isExpanded ? styles.expand : ''
             )}

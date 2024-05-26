@@ -21,8 +21,10 @@ const ProductSearch = () => {
   }
 
   return (
-    <form action='' className={clsx(styles.root, 'row')}>
-      <div className={clsx(styles.category, 'col-6')}>
+    <form action='' className={clsx(styles.root, 'row py-2')}>
+      <div
+        className={clsx(styles.category, 'col-12', 'col-sm-6', 'order-2', 'order-sm-1')}
+      >
         <FontAwesomeIcon className={styles.icon} icon={faListUl} />
         <div
           className={styles.category_select}
@@ -51,7 +53,15 @@ const ProductSearch = () => {
         </ul>
         <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
       </div>
-      <div className={clsx(styles.searchField, 'col-6')}>
+      <div
+        className={clsx(
+          styles.searchField,
+          'col-12',
+          'col-sm-6',
+          'order-1',
+          'order-sm-2'
+        )}
+      >
         <input placeholder='Search products...' type='text' />
         <button>
           <FontAwesomeIcon className={styles.icon} icon={faSearch} />
