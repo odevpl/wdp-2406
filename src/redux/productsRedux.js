@@ -12,6 +12,9 @@ export const getFavorites = ({ products }) =>
 export const getCompares = ({ products }) =>
   products.filter(item => item.isCompare === true);
 
+export const getCategory = ({ products, category }) =>
+  products.filter(item => item.category === category);
+
 /* actions */
 const createActionName = actionName => `app/products/${actionName}`;
 const TOGGLE_FAVORITE_PRODUCT = createActionName('TOGGLE_FAVORITE_PRODUCT');
