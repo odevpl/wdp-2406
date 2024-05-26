@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faListUl, faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import clsx from 'clsx';
 
 import styles from './ProductSearch.module.scss';
 import { getAll } from '../../../redux/categoriesRedux';
@@ -20,8 +21,8 @@ const ProductSearch = () => {
   }
 
   return (
-    <form action='' className={styles.root}>
-      <div className={styles.category}>
+    <form action='' className={clsx(styles.root, 'row')}>
+      <div className={clsx(styles.category, 'col-6')}>
         <FontAwesomeIcon className={styles.icon} icon={faListUl} />
         <div
           className={styles.category_select}
@@ -50,7 +51,7 @@ const ProductSearch = () => {
         </ul>
         <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
       </div>
-      <div className={styles.searchField}>
+      <div className={clsx(styles.searchField, 'col-6')}>
         <input placeholder='Search products...' type='text' />
         <button>
           <FontAwesomeIcon className={styles.icon} icon={faSearch} />
