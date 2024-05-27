@@ -1,0 +1,21 @@
+@import "../../../styles/settings.scss";
+
+
+.averageRatingColor {
+    a {
+      text-decoration: none;
+      color: $dark-grey;
+    }
+  
+  }
+  
+  .userRatingColor {
+    a {
+      text-decoration: none;
+      color: $primary;
+    }
+  }
+  
+a:hover {
+    color: $primary;
+}
