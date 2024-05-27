@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { getViewport, changeViewport } from '../../../redux/viewportRedux';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -14,7 +14,7 @@ const MainLayout = ({ children }) => {
 
   const viewport = useSelector(getViewport);
 
-  const [dimensions, setDimensions] = React.useState({
+  const [, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
   });
@@ -41,23 +41,31 @@ const MainLayout = ({ children }) => {
     return newViewport;
   };
 
+  //
+
+  const handleResize = useCallback(() => {
+    const recalculatedViewport = selectViewport(window.innerWidth);
+    if (viewport !== recalculatedViewport) {
+      dispatch(changeViewport(recalculatedViewport));
+    }
+    // to force re-render setDimensions
+    setDimensions({
+      height: window.innerHeight,
+      width: window.innerWidth,
+    });
+  });
+
+  // set viewport on first render
   useEffect(() => {
-    const handleResize = () => {
-      const recalculatedViewport = selectViewport(window.innerWidth);
-      if (viewport !== recalculatedViewport) {
-        dispatch(changeViewport(recalculatedViewport));
-      }
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-    };
     handleResize();
+  }, []); //eslint-disable-line
+
+  useEffect(() => {
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [dispatch, selectViewport, viewport]);
+  }, [dispatch, viewport]); //eslint-disable-line
 
   return (
     <div className={''}>

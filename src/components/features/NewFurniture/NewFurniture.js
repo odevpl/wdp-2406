@@ -52,18 +52,25 @@ const NewFurniture = props => {
     }
   };
 
+  const maxVisibleDotsBefore = 1;
+  const maxVisibleDotsAfter = 1;
+  const firstVisibleDot = Math.max(activePage - maxVisibleDotsBefore, 0);
+  const lastVisibleDot = Math.min(activePage + maxVisibleDotsAfter, pagesCount - 1);
+
   const dots = [];
   for (let i = 0; i < pagesCount; i++) {
-    dots.push(
-      <li>
-        <a
-          onClick={() => handlePageChange(i)}
-          className={i === activePage && styles.active}
-        >
-          page {i}
-        </a>
-      </li>
-    );
+    if (firstVisibleDot <= i && i <= lastVisibleDot) {
+      dots.push(
+        <li key={`dot-${i}`}>
+          <a
+            onClick={() => handlePageChange(i)}
+            className={i === activePage && styles.active}
+          >
+            page {i}
+          </a>
+        </li>
+      );
+    }
   }
 
   return (
