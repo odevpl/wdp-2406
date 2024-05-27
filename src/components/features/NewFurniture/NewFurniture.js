@@ -23,39 +23,19 @@ const NewFurniture = props => {
   const lastPage = pagesCount - 1;
 
   const handleSwipeLeft = () => {
-    console.log('INSIDE SWIPE LEFT');
-    //console.log('STATE', this.state);
-    //const { activeCategory, activePage } = this.state;
-    console.log('activePage before', activePage);
-    //console.log('LAST PAGE',calculateLastPage());
-
-    //const lastPage = this.calculateLastPage();
-
     if (activePage === lastPage) return;
 
     if (activePage < lastPage) {
-      console.log('INSIDE IF');
-
       const newPage = activePage + 1;
-      console.log('NEW PAGE', newPage);
       handlePageChange(newPage);
     }
-    console.log('activePage after', activePage);
   };
 
   const handleSwipeRight = () => {
-    console.log('INSIDE SWIPE RIGHT');
-    //console.log('STATE', this.state);
-    //const { activePage } = this.state;
-    console.log('activePage before', activePage);
-
     if (activePage === 0) return;
-    //if (this.state.activePage < this.state.lastPage)
     else {
       handlePageChange(activePage - 1);
     }
-
-    console.log('activePage after', activePage);
   };
 
   const dots = [];
