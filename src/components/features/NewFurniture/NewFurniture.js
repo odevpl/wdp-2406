@@ -16,7 +16,6 @@ const NewFurniture = props => {
   const [itemsPerPage, setItemsPerPage] = useState(8);
 
   const viewport = useSelector(getViewport);
-
   if (viewport === 'mobile' && itemsPerPage !== 1) {
     setItemsPerPage(1);
   } else if (viewport === 'tablet' && itemsPerPage !== 4) {
@@ -70,16 +69,18 @@ const NewFurniture = props => {
 
   const dots = [];
   for (let i = 0; i < pagesCount; i++) {
-    dots.push(
-      <li key={`dot-${i}`}>
-        <a
-          onClick={() => handlePageChange(i)}
-          className={i === activePage ? styles.active : ''}
-        >
-          page {i}
-        </a>
-      </li>
-    );
+    if ((firstVisibleDot <= i) & (i <= lastVisibleDot)) {
+      dots.push(
+        <li key={`dot-${i}`}>
+          <a
+            onClick={() => handlePageChange(i)}
+            className={i === activePage ? styles.active : ''}
+          >
+            page {i}
+          </a>
+        </li>
+      );
+    }
   }
 
   return (
@@ -112,11 +113,13 @@ const NewFurniture = props => {
           </div>
 
           <div className={clsx('row', styles.fade, fade)}>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-12 col-md-6 col-lg-3'>
-                <ProductBox {...item} />
-              </div>
-            ))}
+            {categoryProducts
+              .slice(activePage * itemsPerPage, (activePage + 1) * itemsPerPage)
+              .map(item => (
+                <div key={item.id} className='col-12 col-md-6 col-lg-3'>
+                  <ProductBox {...item} />
+                </div>
+              ))}
           </div>
         </div>
       </div>
