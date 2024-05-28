@@ -1,10 +1,6 @@
 @import "../../../styles/settings.scss";
 @import "../../../styles/bootstrap.scss";
 
-$form-border-width: 1px;
-$form-searchbox-bg-color: $white;
-$form-searchbox-hover-bg-color: $primary;
-
 .root {
   // display: inline-flex;
   height: max(45px, 100%);
