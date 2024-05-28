@@ -1,0 +1,14 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  padding: 0 0 5rem 0;
+
+  .box {
+    border: 1px solid $promotions-border-color;
+    height: 400px;
+  }
+  .promotionSecondary {
+    height: 200px;
+    border: 1px solid $promotions-border-color;
+  }
+}
