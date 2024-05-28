@@ -82,6 +82,9 @@
   }
   &:hover .price > * {
     background-color: $product-box-price-hover-bg-color;
+    &.oldPrice {
+      background-color: $white;
+    }
   }
 }
 
@@ -99,6 +102,5 @@
     text-decoration: line-through;
     text-decoration-color: $primary;
     text-decoration-thickness: 2px;
-    
   }
 }
