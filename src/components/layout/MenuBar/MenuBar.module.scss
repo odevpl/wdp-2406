@@ -3,6 +3,10 @@
 
 // depending on bootstrap breakpoint add or remove the class
 
+$form-border-width: 1px;
+$form-searchbox-bg-color: $white;
+$form-searchbox-hover-bg-color: $primary;
+
 .root {
   box-shadow: 2px 3.464px 6px $menubar-boxshadow;
   background-color: $menubar-bg-color;
@@ -14,6 +18,7 @@
   .container {
     padding: 0;
     height: 100%;
+    position: relative;
   }
 
   .menu > ul > li {
@@ -22,19 +27,34 @@
       display: none;
     }
   }
+  .menuToggler {
+    position: relative;
+    // border: $form-border-width solid $form-border-color;
+    border: 0;
+    background-color: $menubar-bg-color;
+    // padding: 25%;
+    margin: 0;
+    // :hover {
+    //   background-color: $menubar-link-hover-bg-color;
+    //   color: $menubar-link-hover-text-color;
+    // }
+    &:hover {
+      color: $menubar-link-hover-text-color;
+      background-color: $menubar-link-hover-bg-color;
+      border: $menubar-link-hover-border-color;
+    }
+
+    & .hamburger {
+      display: block;
+      font-size: 45px;
+    }
+  }
 
   .menu > ul > li.active {
-    display: flex;
+    display: none;
     a {
       position: relative;
       display: flex;
-      .hamburger {
-        position: absolute;
-        left: max(40% - +20px, 10%);
-        top: 50%;
-        transform: translate(-50%, -50%);
-        display: block;
-      }
     }
   }
   .menu.expand {
@@ -42,15 +62,19 @@
       display: flex;
     }
   }
-
+  // overflow: visible;
   .menu {
     // display: flex;
+    position: absolute;
+    // bottom: 0%;
     align-self: stretch;
+    z-index: 10;
     ul {
       margin: 0;
       padding: 0;
       display: flex-column;
       width: 100%;
+      background-color: $menubar-bg-color;
 
       li {
         list-style: none;
@@ -68,7 +92,8 @@
         align-items: center;
         text-align: center;
         justify-content: center;
-        border-top: 4px solid $menubar-link-border-color;
+        border-left: 4px solid $menubar-link-border-color;
+        border-right: 4px solid $menubar-link-border-color;
         font-weight: 500;
         letter-spacing: 1px;
         width: 100%;
@@ -98,13 +123,16 @@
       display: flex;
       a {
         display: flex;
-        .hamburger {
-          display: none;
-        }
+        border-left: 0;
+        border-right: 0;
       }
+    }
+    .menu > button {
+      display: none;
     }
 
     .menu {
+      position: relative;
       display: flex;
       align-self: stretch;
 
@@ -131,6 +159,7 @@
         text-decoration: none;
         display: flex;
         align-items: center;
+        border: 0;
         border-top: 4px solid $menubar-link-border-color;
         font-weight: 500;
         letter-spacing: 1px;
@@ -139,7 +168,7 @@
         &.active {
           background-color: $menubar-link-hover-bg-color;
           color: $menubar-link-hover-text-color;
-          border-color: $menubar-link-hover-border-color;
+          border-top-color: $menubar-link-hover-border-color;
         }
 
         &.active {
