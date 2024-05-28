@@ -4,11 +4,25 @@ import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import Swipeable from '../../common/Swipeable/Swipeable';
 
+import { useSelector } from 'react-redux';
+import { getViewport } from '../../../redux/viewportRedux';
+
 const NewFurniture = props => {
   const { categories, products } = props;
 
   const [activePage, setActivePage] = useState(0);
   const [activeCategory, setActiveCategory] = useState('bed');
+  const [itemsPerPage, setItemsPerPage] = useState(8);
+
+  const viewport = useSelector(getViewport);
+
+  if (viewport === 'mobile' && itemsPerPage !== 1) {
+    setItemsPerPage(1);
+  } else if (viewport === 'tablet' && itemsPerPage !== 4) {
+    setItemsPerPage(4);
+  } else if (viewport === 'desktop' && itemsPerPage !== 8) {
+    setItemsPerPage(8);
+  }
 
   const handlePageChange = newPage => {
     setActivePage(newPage);
@@ -19,7 +33,7 @@ const NewFurniture = props => {
   };
 
   const categoryProducts = products.filter(item => item.category === activeCategory);
-  const pagesCount = Math.ceil(categoryProducts.length / 8);
+  const pagesCount = Math.ceil(categoryProducts.length / itemsPerPage);
   const lastPage = pagesCount - 1;
 
   const handleSwipeLeft = () => {
@@ -38,18 +52,25 @@ const NewFurniture = props => {
     }
   };
 
+  const maxVisibleDotsBefore = 1;
+  const maxVisibleDotsAfter = 1;
+  const firstVisibleDot = Math.max(activePage - maxVisibleDotsBefore, 0);
+  const lastVisibleDot = Math.min(activePage + maxVisibleDotsAfter, pagesCount - 1);
+
   const dots = [];
   for (let i = 0; i < pagesCount; i++) {
-    dots.push(
-      <li>
-        <a
-          onClick={() => handlePageChange(i)}
-          className={i === activePage && styles.active}
-        >
-          page {i}
-        </a>
-      </li>
-    );
+    if (firstVisibleDot <= i && i <= lastVisibleDot) {
+      dots.push(
+        <li key={`dot-${i}`}>
+          <a
+            onClick={() => handlePageChange(i)}
+            className={i === activePage && styles.active}
+          >
+            page {i}
+          </a>
+        </li>
+      );
+    }
   }
 
   return (
@@ -81,11 +102,13 @@ const NewFurniture = props => {
             </div>
           </div>
           <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-12 col-sm-6 col-lg-4 col-xl-3'>
-                <ProductBox {...item} />
-              </div>
-            ))}
+            {categoryProducts
+              .slice(activePage * itemsPerPage, (activePage + 1) * itemsPerPage)
+              .map(item => (
+                <div key={item.id} className='col-12 col-md-6 col-lg-3'>
+                  <ProductBox {...item} />
+                </div>
+              ))}
           </div>
         </div>
       </div>
