@@ -1,10 +1,6 @@
 @import "../../../styles/settings.scss";
 
-$promotions-primary-edge-size: 5%;
-
 $edge-size: $promotions-primary-edge-size;
-$promotions-primary-text-color: $white;
-$promotions-bg-color: $grey;
 
 .root {
   padding: 0 0 5rem 0;
@@ -20,15 +16,15 @@ $promotions-bg-color: $grey;
     .message {
       position: absolute;
       text-transform: uppercase;
-      color: $promotions-primary-text-color;
     }
   }
 
   .promotionPrimary {
-    height: 400px;
-    // border: 1px solid $promotions-border-color;
+    height: $promotions-height;
+    background-color: $promotions-primary-bg-color;
     padding-left: 0;
     position: relative;
+    color: $promotions-primary-text-color;
 
     .shadow {
       position: absolute;
@@ -61,8 +57,9 @@ $promotions-bg-color: $grey;
     }
   }
   .promotionSecondary {
-    height: 200px - 8px;
-    // border: 1px solid $promotions-border-color;
+    height: $promotions-height / 2 - 8px;
+    background-color: $promotions-secondary-bg-color;
+    color: $promotions-secondary-text-color;
     img {
       opacity: 0.5;
     }
@@ -85,15 +82,16 @@ $promotions-bg-color: $grey;
         margin: 0;
       }
       h2 {
-        color: $primary;
+        color: $promotions-accent-color;
       }
     }
   }
   .promotionTertiary {
-    height: 200px - 8px;
+    height: $promotions-height / 2 - 8px;
     // border: 1px solid $promotions-border-color;
     position: relative;
-    background-color: $promotions-bg-color;
+    background-color: $promotions-tertiary-bg-color;
+    color: $promotions-tertiary-text-color;
     background-clip: content-box;
     img {
       width: 50%;
@@ -121,7 +119,7 @@ $promotions-bg-color: $grey;
         text-align: end;
       }
       h5 {
-        color: $primary;
+        color: $promotions-accent-color;
       }
       p {
         text-align: end;
