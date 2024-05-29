@@ -628,6 +628,38 @@ const initialState = {
     products: [],
   },
   viewport: { type: 'desktop' },
+  brands: [
+    {
+      id: 'brand-1',
+      name: 'Brand Name 1',
+      image: process.env.PUBLIC_URL + '/images/brands/brand-1.jpg',
+    },
+    {
+      id: 'brand-2',
+      name: 'Brand Name 2',
+      image: process.env.PUBLIC_URL + '/images/brands/brand-2.jpg',
+    },
+    {
+      id: 'brand-3',
+      name: 'Brand Name 3',
+      image: process.env.PUBLIC_URL + '/images/brands/brand-3.jpg',
+    },
+    {
+      id: 'brand-4',
+      name: 'Brand Name 4',
+      image: process.env.PUBLIC_URL + '/images/brands/brand-4.jpg',
+    },
+    {
+      id: 'brand-5',
+      name: 'Brand Name 5',
+      image: process.env.PUBLIC_URL + '/images/brands/brand-5.jpg',
+    },
+    {
+      id: 'brand-6',
+      name: 'Brand Name 6',
+      image: process.env.PUBLIC_URL + '/images/brands/brand-6.jpg',
+    },
+  ],
 };
 
 export default initialState;

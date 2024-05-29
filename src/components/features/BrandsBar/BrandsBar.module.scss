@@ -1,0 +1,38 @@
+@import '../../../styles/settings.scss';
+
+.root {
+    margin: 30px 0 75px 0;
+    height: 130px;
+    
+    .panelBar {
+        border-top: 1px solid $brandsbar-border-color;
+        border-bottom: 1px solid $brandsbar-border-color;
+        padding: 25px 0;
+    }
+
+    .brandIcon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+        height: 100px;
+        border: 1px solid $brandsbar-border-color;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0);
+        }
+    }
+    button {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 100px;
+        background-color: $brandsbar-arrow-bg-color;
+        color: $brandsbar-arrow-color;
+        font-size: 12px;
+    }
+}
