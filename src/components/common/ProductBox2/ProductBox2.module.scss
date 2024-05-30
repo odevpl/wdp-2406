@@ -4,6 +4,7 @@
   background-color: $product-box-bg-color;
   border: 1px solid $product-box-border-color;
   margin-bottom: 2rem;
+  position: relative;
 
   .photo {
     position: relative;
@@ -39,68 +40,128 @@
     visibility: visible;
   }
 
-  .content {
-    text-align: center;
-    padding: 20px;
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .content {
+      position: absolute;
+      bottom: 0;
+      right: 0;
 
-    h5 {
-      color: $product-box-title-color;
-      font-size: 16px;
-      line-height: 24px;
-      letter-spacing: 1px;
-    }
+      background: linear-gradient(135deg, black 15px, transparent 15px),
+        linear-gradient(-45deg, black 15px, white 15px);
 
-    .stars {
-      a {
-        text-decoration: none;
-        color: $product-box-stars-color;
+      text-align: center;
+      padding: 20px;
+
+      h5 {
+        color: $product-box-title-color;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 1px;
+      }
+
+      .stars {
+        a {
+          text-decoration: none;
+          color: $product-box-stars-color;
+        }
+      }
+      .price {
+        position: absolute;
+        left: 50%;
+        bottom: 75%;
+        transform: translate(-50%);
+        color: $product-box-photo-sale-text-color;
+        padding: 30px;
+
+        & .circleshadow {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 100px; // adjust as needed
+          height: 100px; // adjust as needed
+          background-color: rgba(
+            red($product-box-photo-sale-bg-color),
+            green($product-box-photo-sale-bg-color),
+            blue($product-box-photo-sale-bg-color),
+            0.8
+          );
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          z-index: -1;
+        }
+
+        & * {
+          background-color: transparent;
+          font-size: 20px;
+        }
+
+        .oldPrice {
+          font-size: 16px;
+          color: $product-box-photo-sale-text-color;
+          // margin: auto 5px;
+          text-align: center;
+          text-decoration: line-through;
+          text-decoration-color: $product-box-photo-sale-text-color;
+          text-decoration-thickness: 2px;
+        }
       }
     }
-  }
 
-  .line {
-    margin: 0 10px;
-    border-bottom: 1px solid $product-box-line-color;
-    position: relative;
-
-    &::before {
-      content: "";
+    .actions {
+      padding: 15px 10px 10px 10px;
       position: absolute;
-      bottom: -1px;
-      left: 50%;
-      width: 30px;
-      border-bottom: 4px solid $product-box-line-decorator-color;
-      transform: translateX(-50%);
+
+      top: 50%;
+      transform: translateY(-50%);
+
+      justify-content: space-between;
+      align-items: center;
+
+      & .buttons {
+        display: flex;
+        flex-direction: column;
+        .button {
+          position: relative;
+          margin: 5px 0;
+          width: fit-content;
+          background-color: $white;
+          & .tooltip {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 110%;
+            width: max-content;
+            transform: translateY(-50%);
+            background-color: $black;
+            color: $white;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+          }
+          &:hover {
+            color: $primary;
+            .tooltip {
+              display: block;
+            }
+          }
+        }
+      }
     }
+    // &:hover .price > * {
+    //   background-color: $product-box-price-hover-bg-color;
+    //   &.oldPrice {
+    //     background-color: $product-box-bg-color;
+    //   }
+    // }
   }
 
-  .actions {
-    padding: 15px 10px 10px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  &:hover .price > * {
-    background-color: $product-box-price-hover-bg-color;
-    &.oldPrice {
-      background-color: $product-box-bg-color;
-    }
-  }
-}
-
-.buttonActive {
-  background-color: $primary;
-}
-
-.price {
-  display: flex;
-
-  .oldPrice {
-    font-size: 16px;
-    color: $dark-grey;
-    margin: auto 5px;
-    text-decoration: line-through;
-    text-decoration-color: $primary;
-    text-decoration-thickness: 2px;
+  .buttonActive {
+    background-color: $primary;
   }
 }
