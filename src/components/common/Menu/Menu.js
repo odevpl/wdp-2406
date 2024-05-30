@@ -9,8 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import styles from './Menu.module.scss';
 
-const Menu = ({ children }) => {
-  const menuItems = ['Home', 'Furniture', 'Chair', 'Table', 'Sofa', 'Bedroom', 'Blog'];
+const Menu = ({ menuItems }) => {
   const alwaysDesktop = true;
 
   const [selectedCategory, setSelectedCategory] = useState('Home');
@@ -71,6 +70,7 @@ const Menu = ({ children }) => {
 };
 
 Menu.propTypes = {
+  menuItems: PropTypes.array,
   children: PropTypes.node,
 };
 

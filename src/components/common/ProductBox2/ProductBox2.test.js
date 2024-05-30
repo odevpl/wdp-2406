@@ -1,19 +1,22 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Menu from './Menu';
+import ProductBox2 from './ProductBox2';
 import * as reactRedux from 'react-redux';
 
-describe('Component Menu', () => {
+describe('Component ProductBox2', () => {
   const useSelectorMock = jest.spyOn(reactRedux, 'useSelector');
+  const useDispatchMock = jest.spyOn(reactRedux, 'useDispatch');
 
   beforeEach(() => {
     useSelectorMock.mockClear();
+    useDispatchMock.mockClear();
   });
 
   it('should render without crashing', () => {
-    const dummySelector = jest.fn();
-    useSelectorMock.mockReturnValue(dummySelector);
-    const component = shallow(<Menu menuItems={['item1', 'item2']} />);
+    const dummyDispatch = jest.fn();
+    useDispatchMock.mockReturnValue(dummyDispatch);
+
+    const component = shallow(<ProductBox2 />);
     expect(component).toBeTruthy();
   });
 });
