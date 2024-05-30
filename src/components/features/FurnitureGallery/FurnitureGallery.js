@@ -6,6 +6,7 @@ import ProductBox2 from '../../common/ProductBox2/ProductBox2';
 // import Swipeable from '../../common/Swipeable/Swipeable';
 import Menu from '../../common/Menu/Menu';
 
+import SlideBar from '../../common/SlideBar/SlideBar';
 import { useSelector } from 'react-redux';
 // import { getViewport } from '../../../redux/viewportRedux';
 
@@ -37,6 +38,7 @@ const FurnitureGallery = props => {
             <div>
               <ProductBox2 key={product.id} {...product} />
             </div>
+            <SlideBar />
           </div>
           <div className='col-12 col-md-6'>
             <h2>Promotion</h2>
