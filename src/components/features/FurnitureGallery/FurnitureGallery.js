@@ -1,27 +1,27 @@
-import React /*, { useState, useEffect }*/ from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import styles from './FurnitureGallery.module.scss';
+
+import { useSelector } from 'react-redux';
+import { getAll } from '../../../redux/productsRedux';
+
 import ProductBox2 from '../../common/ProductBox2/ProductBox2';
+import SlideBar from '../../common/SlideBar/SlideBar';
 // import Swipeable from '../../common/Swipeable/Swipeable';
 import Menu from '../../common/Menu/Menu';
-
-import SlideBar from '../../common/SlideBar/SlideBar';
-import { useSelector } from 'react-redux';
-// import { getViewport } from '../../../redux/viewportRedux';
 import Button from '../../common/Button/Button';
 
 const FurnitureGallery = props => {
-  // create layout
+  const products = useSelector(getAll);
 
-  const product = useSelector(state => state.products[0]);
+  const [activeProductId, setActiveProductId] = useState('aenean-ru-bristique-3');
 
-  // const [productState, setProductState] = useState({});
+  const product = products.find(product => product.id === activeProductId);
 
-  // setProductState(product);
-
-  // console.log('product', product);
   const menuItems = ['Featured', 'Top Seller', 'Sale Off', 'Top Rated'];
+
+  const brands = useSelector(state => state.brands);
 
   return (
     <div className={styles.root}>
@@ -41,9 +41,9 @@ const FurnitureGallery = props => {
               />
             </div>
             <div>
-              <ProductBox2 key={product.id} {...product} />
+              <ProductBox2 key={activeProductId} {...product} />
             </div>
-            <SlideBar />
+            <SlideBar items={products} activeId={activeProductId} />
           </div>
           <div className='col-12 col-md-6'>
             <div className={clsx(styles.promotion)}>
