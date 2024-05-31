@@ -9,6 +9,7 @@ import Menu from '../../common/Menu/Menu';
 import SlideBar from '../../common/SlideBar/SlideBar';
 import { useSelector } from 'react-redux';
 // import { getViewport } from '../../../redux/viewportRedux';
+import Button from '../../common/Button/Button';
 
 const FurnitureGallery = props => {
   // create layout
@@ -29,11 +30,15 @@ const FurnitureGallery = props => {
           <div className={clsx('col-12', 'col-md-6', styles.gallery)}>
             <div className={styles.panelBar}>
               <div className={styles.heading}>
-                <h3>New furniture</h3>
+                <h3>Furniture Gallery</h3>
               </div>
             </div>
             <div>
-              <Menu menuItems={menuItems} className={styles.menu} />
+              <Menu
+                menuItems={menuItems}
+                className={clsx(styles.menu, styles.active)}
+                doNotCollapse={true}
+              />
             </div>
             <div>
               <ProductBox2 key={product.id} {...product} />
@@ -41,7 +46,19 @@ const FurnitureGallery = props => {
             <SlideBar />
           </div>
           <div className='col-12 col-md-6'>
-            <h2>Promotion</h2>
+            <div className={clsx(styles.promotion)}>
+              <img
+                src={`${process.env.PUBLIC_URL + '/images/sofas/sofa-2.webp'}`}
+                alt='bed'
+              />
+              {/* <div className={styles.shadow}></div> */}
+              <div className={styles.message}>
+                <span className={styles.from}>from </span>
+                <span className={styles.price}>$50.80</span>
+                <h2 className={styles.item}>Bedroom Bed</h2>
+                <Button className={styles.button}>shop now</Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

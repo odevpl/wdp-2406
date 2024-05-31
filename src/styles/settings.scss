@@ -11,6 +11,7 @@ $white: #ffffff;
 $grey: #b6b6b6;
 $primary: #d58e32;
 $teal-tint: rgba(1, 2, 2, 0.2);
+$white-peach: rgb(247, 243, 243);
 
 $test-color: rgb(255, 0, 200);
 
@@ -90,3 +91,14 @@ $panelbar-dots-active-color: $primary;
 $brandsbar-border-color: $grey;
 $brandsbar-arrow-bg-color: $dark-grey;
 $brandsbar-arrow-color: $white;
+
+$menu-bg-color: $white;
+$menu-link-text-color: $black;
+$menu-link-bg-color: $white;
+$menu-link-border-color: $white;
+$menu-link-hover-text-color: $primary;
+$menu-link-hover-bg-color: $white-peach;
+$menu-link-hover-border-color: $primary;
+$menu-link-active-text-color: $primary;
+$menu-link-active-bg-color: $white-peach;
+$menu-link-active-border-color: $primary;

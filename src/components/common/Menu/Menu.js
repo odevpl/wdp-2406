@@ -9,10 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import styles from './Menu.module.scss';
 
-const Menu = ({ menuItems }) => {
-  const alwaysDesktop = true;
-
-  const [selectedCategory, setSelectedCategory] = useState('Home');
+const Menu = ({ menuItems, className, doNotCollapse }) => {
+  const [selectedCategory, setSelectedCategory] = useState(menuItems[0]);
   const [isExpanded, setIsExpanded] = useState(false);
 
   const mobile = useSelector(state => state.viewport.type) === 'mobile';
@@ -45,7 +43,7 @@ const Menu = ({ menuItems }) => {
         <button
           className={clsx(
             styles.menuToggler,
-            !mobile || alwaysDesktop ? styles.desktop : ''
+            !mobile || doNotCollapse ? styles.desktop : ''
           )}
           onClick={() => {
             if (mobile) setIsExpanded(!isExpanded);
@@ -57,8 +55,10 @@ const Menu = ({ menuItems }) => {
       <div
         className={clsx(
           styles.menu,
+
           isExpanded || !mobile ? styles.expanded : '',
-          !mobile || alwaysDesktop ? styles.desktop : ''
+          !mobile || doNotCollapse ? styles.desktop : '',
+          className
         )}
       >
         <ul className={clsx('d-sm-flex', styles.menuList)}>
@@ -71,6 +71,8 @@ const Menu = ({ menuItems }) => {
 
 Menu.propTypes = {
   menuItems: PropTypes.array,
+  className: PropTypes.string || PropTypes.list || PropTypes.object,
+  doNotCollapse: PropTypes.bool,
   children: PropTypes.node,
 };
 

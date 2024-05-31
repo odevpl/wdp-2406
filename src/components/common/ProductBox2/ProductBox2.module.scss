@@ -8,7 +8,7 @@
 
   .photo {
     position: relative;
-    padding: 80% 10px 0 10px;
+    padding: 70% 10px 0 10px;
     background: {
       color: $product-box-photo-bg-color;
       size: cover;
@@ -153,6 +153,7 @@
         }
       }
     }
+
     // &:hover .price > * {
     //   background-color: $product-box-price-hover-bg-color;
     //   &.oldPrice {
