@@ -4,6 +4,10 @@ import clsx from 'clsx';
 
 import styles from './Promotions.module.scss';
 
+const card = (image, title, discount) => {
+  return <div></div>;
+};
+
 const Promotions = () => (
   <div className={styles.root}>
     <div className='container'>
