@@ -1,16 +1,10 @@
 @import "../../../styles/settings.scss";
 @import "../../../styles/bootstrap.scss";
 
-// depending on bootstrap breakpoint add or remove the class
-
 .root {
   box-shadow: 2px 3.464px 6px $menubar-boxshadow;
   background-color: $menubar-bg-color;
 
-  // :global(.container) > :global(.row) {
-  //   // height: max(84px, 100%);
-  //   height: 100%;
-  // }
   .container {
     padding: 0;
     height: 100%;
@@ -25,15 +19,10 @@
   }
   .menuToggler {
     position: relative;
-    // border: $form-border-width solid $form-border-color;
     border: 0;
     background-color: $menubar-bg-color;
-    // padding: 25%;
     margin: 0;
-    // :hover {
-    //   background-color: $menubar-link-hover-bg-color;
-    //   color: $menubar-link-hover-text-color;
-    // }
+
     &:hover {
       color: $menubar-link-hover-text-color;
       background-color: $menubar-link-hover-bg-color;
@@ -58,11 +47,9 @@
       display: flex;
     }
   }
-  // overflow: visible;
+
   .menu {
-    // display: flex;
     position: absolute;
-    // bottom: 0%;
     align-self: stretch;
     z-index: 10;
     ul {
@@ -74,7 +61,6 @@
 
       li {
         list-style: none;
-        // display: flex;
         align-items: stretch;
         width: 100%;
       }
@@ -84,7 +70,6 @@
         font-size: 12px;
         padding: 1rem;
         text-decoration: none;
-        // display: flex;
         align-items: center;
         text-align: center;
         justify-content: center;

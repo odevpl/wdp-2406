@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-// import Dropdown from 'react-bootstrap/Dropdown';
 
 import ProductSearch from '../../features/ProductSearch/ProductSearch';
 import clsx from 'clsx';
