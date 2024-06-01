@@ -660,6 +660,35 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/brands/brand-6.jpg',
     },
   ],
+  promotions: [
+    {
+      id: 'promotion-1',
+      type: 'type1',
+      image: process.env.PUBLIC_URL + '/images/sofas/sofa-1.jpg',
+      text1: 'Guest Room',
+      text2: 'Sofa',
+      text3: '-20%',
+      text4: '',
+    },
+    {
+      id: 'promotion-2',
+      type: 'type1',
+      image: process.env.PUBLIC_URL + '/images/sofas/sofa-2.webp',
+      text1: 'Office',
+      text2: 'Chair',
+      text3: 'Collection',
+      text4: '$200.00',
+    },
+    {
+      id: 'promotion-3',
+      type: 'collection',
+      image: process.env.PUBLIC_URL + '/images/sofas/sofa-1.jpg',
+      text1: 'Special',
+      text2: 'Collection',
+      text3: 'Save up to $45% of furniture',
+      text4: '',
+    },
+  ],
 };
 
 export default initialState;
