@@ -20,6 +20,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: false,
+      featured: false,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -34,6 +36,8 @@ const initialState = {
       isFavorite: true,
       isCompare: false,
       oldPrice: 45,
+      topSeller: false,
+      featured: false,
     },
     {
       id: 'aenean-ru-bristique-3',
@@ -48,6 +52,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 50,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -61,6 +67,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-4.jpg',
       isFavorite: true,
       isCompare: false,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-5',
@@ -74,6 +82,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-5.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-6',
@@ -88,6 +98,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 35,
+      topSeller: false,
+      featured: false,
     },
     {
       id: 'aenean-ru-bristique-7',
@@ -101,6 +113,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-7.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: false,
+      featured: false,
     },
     {
       id: 'aenean-ru-bristique-8',
@@ -115,6 +129,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-9',
@@ -128,6 +144,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-2.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-10',
@@ -141,6 +159,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-1.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-11',
@@ -154,6 +174,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-4.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-12',
@@ -167,6 +189,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-3.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-13',
@@ -180,6 +204,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-6.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-14',
@@ -193,6 +219,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-5.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-15',
@@ -206,6 +234,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-8.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: false,
+      featured: false,
     },
     {
       id: 'aenean-ru-bristique-16',
@@ -219,6 +249,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-7.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-17',
@@ -232,6 +264,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-8.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-18',
@@ -245,6 +279,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-7.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-19',
@@ -258,6 +294,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-6.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-20',
@@ -271,6 +309,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-5.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-21',
@@ -284,6 +324,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-4.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: false,
+      featured: false,
     },
     {
       id: 'aenean-ru-bristique-22',
@@ -297,6 +339,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-3.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-23',
@@ -310,6 +354,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-2.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: false,
+      featured: false,
     },
     {
       id: 'aenean-ru-bristique-24',
@@ -323,6 +369,8 @@ const initialState = {
       image: process.env.PUBLIC_URL + '/images/beds/bed-1.jpg',
       isFavorite: false,
       isCompare: false,
+      topSeller: false,
+      featured: false,
     },
     {
       id: 'definitely-not-cursed-chair-1',
@@ -336,6 +384,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 666,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'definitely-not-cursed-chair-2',
@@ -349,6 +399,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'iron-throne-3',
@@ -362,6 +414,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'porcelain-throne-4',
@@ -375,6 +429,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'definitely-not-cursed-chair-5',
@@ -388,6 +444,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: false,
+      featured: false,
     },
     {
       id: 'definitely-not-cursed-chair-6',
@@ -401,6 +459,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'definitely-not-cursed-chair-7',
@@ -414,6 +474,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'definitely-not-cursed-chair-8',
@@ -427,6 +489,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'sofa-1',
@@ -440,6 +504,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'sofa-2',
@@ -453,6 +519,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'sofa-3',
@@ -466,6 +534,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: false,
+      featured: false,
     },
     {
       id: 'sofa-4',
@@ -479,6 +549,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'sofa-5',
@@ -492,6 +564,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'table-1',
@@ -505,6 +579,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'table-2',
@@ -518,6 +594,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'table-3',
@@ -531,6 +609,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'table-4',
@@ -544,6 +624,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'table-5',
@@ -557,6 +639,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'dining-1',
@@ -570,6 +654,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: false,
+      featured: false,
     },
     {
       id: 'dining-2',
@@ -583,6 +669,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'dining-3',
@@ -596,6 +684,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: true,
+      featured: true,
     },
     {
       id: 'dining-4',
@@ -609,6 +699,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: false,
+      featured: true,
     },
     {
       id: 'dining-5',
@@ -622,6 +714,8 @@ const initialState = {
       isFavorite: false,
       isCompare: false,
       oldPrice: 60,
+      topSeller: true,
+      featured: true,
     },
   ],
   cart: {
