@@ -25,6 +25,21 @@ export const getTopSellers = ({ products }) =>
 export const getSaleOff = ({ products }) =>
   products.filter(item => item.promo === 'sale');
 
+export const getGalleryCategory = ({ products, categoryId }) => {
+  switch (categoryId) {
+    case 'featured':
+      return getFeatured({ products });
+    case 'topRated':
+      return getTopRated({ products });
+    case 'topSeller':
+      return getTopSellers({ products });
+    case 'saleOff':
+      return getSaleOff({ products });
+    default:
+      return [];
+  }
+};
+
 export const selectors = {
   getAll,
   getCount,

@@ -5,7 +5,6 @@ import styles from './FurnitureGallery.module.scss';
 
 import { useSelector } from 'react-redux';
 import {
-  getAll,
   getTopRated,
   getFeatured,
   getTopSellers,
@@ -18,8 +17,6 @@ import Menu from '../../common/Menu/Menu';
 import Button from '../../common/Button/Button';
 
 const FurnitureGallery = props => {
-  // const products = useSelector(getAll);
-
   const topRated = useSelector(getTopRated);
   const featured = useSelector(getFeatured);
   const topSeller = useSelector(getTopSellers);
@@ -52,13 +49,20 @@ const FurnitureGallery = props => {
     },
   ];
 
-  const [activeCategory, setActiveCategory] = useState(
-    promoCategories.find(category => category.id === 'featured')
+  const [activeCategoryId, setActiveCategoryId] = useState('featured');
+  const activeCategory = promoCategories.find(
+    category => category.id === activeCategoryId
   );
-  const [activeProductId, setActiveProductId] = useState(topRated[0].id);
+  const [activeProductId, setActiveProductId] = useState(
+    activeCategoryId.activeProductId
+  );
 
   const products = activeCategory.products;
-  const product = products.find(product => product.id === activeProductId);
+  let product = products.find(product => product.id === activeProductId);
+  if (!product) {
+    product = products[0];
+    setActiveProductId(product.id);
+  }
 
   return (
     <div className={styles.root}>
@@ -72,17 +76,19 @@ const FurnitureGallery = props => {
             </div>
             <div>
               <Menu
-                menuItems={promoCategories.map(category => category.name)}
+                menuItems={promoCategories}
                 className={clsx(styles.menu, styles.active)}
                 doNotCollapse={true}
+                selectedItemId={activeCategoryId}
+                setSelectedItemId={setActiveCategoryId}
               />
             </div>
             <div>
-              <ProductBox2 key={activeProductId} {...product} />
+              <ProductBox2 key={product.id} {...product} />
             </div>
             <SlideBar
               items={products}
-              activeId={activeProductId}
+              activeId={product.id}
               handleClick={setActiveProductId}
             />
           </div>
