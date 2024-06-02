@@ -22,7 +22,7 @@ const SlideBar = ({ items, activeId }) => {
                   activeId === item.id ? styles.active : ''
                 )}
               >
-                <overlay className={styles.overlay}></overlay>
+                <div className={styles.overlay}></div>
                 <img src={item.image} alt={item.name} />
               </div>
             ))}
