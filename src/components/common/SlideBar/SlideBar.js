@@ -48,11 +48,6 @@ const SlideBar = ({ items, activeId, handleClick }) => {
     currentFirstItemIndex + amountOfItems,
     items.length - 1
   );
-  console.log(
-    currentFirstItemIndex,
-    lastItemIndex,
-    items.slice(currentFirstItemIndex, lastItemIndex)
-  );
 
   return (
     <div className={styles.root}>
