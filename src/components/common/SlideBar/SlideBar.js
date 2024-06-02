@@ -30,18 +30,27 @@ const SlideBar = ({ items, activeId, handleClick }) => {
   const [currentFirstItemIndex, setCurrentFirstItemIndex] = useState(
     initialFirstItemIndex
   );
+  const [fade, setFade] = useState(styles.fadeIn);
+
+  const fadeSlideChange = id => {
+    setFade(styles.fadeOut);
+    setTimeout(() => {
+      setCurrentFirstItemIndex(id);
+      setFade(styles.fadeIn);
+    }, 500);
+  };
 
   const moveRight = () => {
     const nextFirstItemIndex = Math.min(
       currentFirstItemIndex + amountOfItems,
       items.length - amountOfItems
     );
-    setCurrentFirstItemIndex(nextFirstItemIndex);
+    fadeSlideChange(nextFirstItemIndex);
   };
 
   const moveLeft = () => {
     const nextFirstItemIndex = Math.max(currentFirstItemIndex - amountOfItems, 0);
-    setCurrentFirstItemIndex(nextFirstItemIndex);
+    fadeSlideChange(nextFirstItemIndex);
   };
 
   const lastItemIndex = Math.min(
@@ -62,7 +71,7 @@ const SlideBar = ({ items, activeId, handleClick }) => {
           >
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>
-          <div className={clsx(styles.slide, '')}>
+          <div className={clsx(styles.slide, styles.fade, fade)}>
             {items.slice(currentFirstItemIndex, lastItemIndex).map(item => (
               <div
                 key={item.id}

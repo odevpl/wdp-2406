@@ -58,13 +58,21 @@ const FurnitureGallery = props => {
   );
 
   const [fadeCategory, setFadeCategory] = useState('');
-  const [fadeSlide, setFadeSlide] = useState('');
+  const [fadeProduct, setFadeProduct] = useState('');
 
   const fadeCategoryChange = id => {
     setFadeCategory(styles.fadeOut);
     setTimeout(() => {
       setActiveCategoryId(id);
       setFadeCategory(styles.fadeIn);
+    }, 500);
+  };
+
+  const fadeProductChange = id => {
+    setFadeProduct(styles.fadeOut);
+    setTimeout(() => {
+      setActiveProductId(id);
+      setFadeProduct(styles.fadeIn);
     }, 500);
   };
 
@@ -94,14 +102,16 @@ const FurnitureGallery = props => {
                 setSelectedItemId={fadeCategoryChange}
               />
             </div>
-            <div className={clsx(styles.fade, fadeCategory)}>
+            <div className={clsx(styles.fade, fadeCategory, fadeProduct)}>
               <ProductBox2 key={product.id} {...product} />
             </div>
-            <SlideBar
-              items={products}
-              activeId={product.id}
-              handleClick={setActiveProductId}
-            />
+            <div className={clsx(styles.fade, fadeCategory)}>
+              <SlideBar
+                items={products}
+                activeId={product.id}
+                handleClick={fadeProductChange}
+              />
+            </div>
           </div>
           <div className='d-none d-md-block col-12 col-md-6'>
             <div className={clsx(styles.promotion)}>
