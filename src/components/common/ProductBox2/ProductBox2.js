@@ -48,9 +48,7 @@ const ProductBox2 = ({
 
   return (
     <div className={styles.root}>
-      <div className={styles.photo} style={{ backgroundImage: `url(${image})` }}>
-        {/* {promo && <div className={styles.sale}>{promo}</div>} */}
-      </div>
+      <div className={styles.photo} style={{ backgroundImage: `url(${image})` }}></div>
       <div className={styles.overlay}>
         <div className={styles.content}>
           <h5>{name}</h5>

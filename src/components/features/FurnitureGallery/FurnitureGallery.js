@@ -8,7 +8,6 @@ import { getAll } from '../../../redux/productsRedux';
 
 import ProductBox2 from '../../common/ProductBox2/ProductBox2';
 import SlideBar from '../../common/SlideBar/SlideBar';
-// import Swipeable from '../../common/Swipeable/Swipeable';
 import Menu from '../../common/Menu/Menu';
 import Button from '../../common/Button/Button';
 
@@ -20,8 +19,6 @@ const FurnitureGallery = props => {
   const product = products.find(product => product.id === activeProductId);
 
   const menuItems = ['Featured', 'Top Seller', 'Sale Off', 'Top Rated'];
-
-  const brands = useSelector(state => state.brands);
 
   return (
     <div className={styles.root}>
@@ -51,7 +48,6 @@ const FurnitureGallery = props => {
                 src={`${process.env.PUBLIC_URL + '/images/sofas/sofa-2.webp'}`}
                 alt='bed'
               />
-              {/* <div className={styles.shadow}></div> */}
               <div className={styles.message}>
                 <span className={styles.from}>from </span>
                 <span className={styles.price}>$50.80</span>

@@ -103,7 +103,6 @@
         .oldPrice {
           font-size: 16px;
           color: $product-box-photo-sale-text-color;
-          // margin: auto 5px;
           text-align: center;
           text-decoration: line-through;
           text-decoration-color: $product-box-photo-sale-text-color;
@@ -153,13 +152,6 @@
         }
       }
     }
-
-    // &:hover .price > * {
-    //   background-color: $product-box-price-hover-bg-color;
-    //   &.oldPrice {
-    //     background-color: $product-box-bg-color;
-    //   }
-    // }
   }
 
   .buttonActive {
