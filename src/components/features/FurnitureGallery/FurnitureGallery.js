@@ -40,7 +40,11 @@ const FurnitureGallery = props => {
             <div>
               <ProductBox2 key={activeProductId} {...product} />
             </div>
-            <SlideBar items={products} activeId={activeProductId} />
+            <SlideBar
+              items={products}
+              activeId={activeProductId}
+              handleClick={setActiveProductId}
+            />
           </div>
           <div className='col-12 col-md-6'>
             <div className={clsx(styles.promotion)}>
