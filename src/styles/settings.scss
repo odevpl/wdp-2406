@@ -21,6 +21,9 @@ $form-border-color: $dark-grey;
 $form-searchbox-text-color: $dark-grey;
 $form-searchbox-placeholder-text-color: $dark-grey;
 $form-searchbox-icon-text-color: $primary;
+$form-border-width: 1px;
+$form-searchbox-bg-color: $white;
+$form-searchbox-hover-bg-color: $primary;
 
 $button-bg-color: $dark-grey;
 $button-color: $white;
@@ -92,6 +95,7 @@ $brandsbar-border-color: $grey;
 $brandsbar-arrow-bg-color: $dark-grey;
 $brandsbar-arrow-color: $white;
 
+
 $menu-bg-color: $white;
 $menu-link-text-color: $black;
 $menu-link-bg-color: $white;
@@ -102,3 +106,16 @@ $menu-link-hover-border-color: $primary;
 $menu-link-active-text-color: $primary;
 $menu-link-active-bg-color: $white-peach;
 $menu-link-active-border-color: $primary;
+
+$promotions-bg-color: $white;
+$promotions-border-color: $grey;
+
+$promotions-primary-text-color: $white;
+$promotions-secondary-text-color: $black;
+$promotions-tertiary-text-color: $black;
+$promotions-primary-bg-color: $white;
+$promotions-secondary-bg-color: $white;
+$promotions-tertiary-bg-color: $grey;
+$promotions-accent-color: $primary;
+$promotions-primary-edge-size: 5%;
+$promotions-height: 400px;
