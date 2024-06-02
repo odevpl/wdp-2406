@@ -4,7 +4,13 @@ import clsx from 'clsx';
 import styles from './FurnitureGallery.module.scss';
 
 import { useSelector } from 'react-redux';
-import { getAll } from '../../../redux/productsRedux';
+import {
+  getAll,
+  getTopRated,
+  getFeatured,
+  getTopSellers,
+  getSaleOff,
+} from '../../../redux/productsRedux';
 
 import ProductBox2 from '../../common/ProductBox2/ProductBox2';
 import SlideBar from '../../common/SlideBar/SlideBar';
@@ -12,13 +18,47 @@ import Menu from '../../common/Menu/Menu';
 import Button from '../../common/Button/Button';
 
 const FurnitureGallery = props => {
-  const products = useSelector(getAll);
+  // const products = useSelector(getAll);
 
-  const [activeProductId, setActiveProductId] = useState('aenean-ru-bristique-3');
+  const topRated = useSelector(getTopRated);
+  const featured = useSelector(getFeatured);
+  const topSeller = useSelector(getTopSellers);
+  const saleOff = useSelector(getSaleOff);
 
+  const promoCategories = [
+    {
+      id: 'featured',
+      name: 'Featured',
+      products: featured ? featured : [],
+      activeProductId: featured ? featured[0].id : null,
+    },
+    {
+      id: 'topRated',
+      name: 'Top Rated',
+      products: topRated ? topRated : [],
+      activeProductId: topRated ? topRated[0].id : null,
+    },
+    {
+      id: 'topSeller',
+      name: 'Top Seller',
+      products: topSeller ? topSeller : [],
+      activeProductId: topSeller ? topSeller[0].id : null,
+    },
+    {
+      id: 'saleOff',
+      name: 'Sale Off',
+      products: saleOff ? saleOff : [],
+      activeProductId: saleOff ? saleOff[0].id : null,
+    },
+  ];
+
+  const [activeCategory, setActiveCategory] = useState(
+    promoCategories.find(category => category.id === 'featured')
+  );
+  const [activeProductId, setActiveProductId] = useState(topRated[0].id);
+
+  const products = activeCategory.products;
   const product = products.find(product => product.id === activeProductId);
-
-  const menuItems = ['Featured', 'Top Seller', 'Sale Off', 'Top Rated'];
 
   return (
     <div className={styles.root}>
@@ -32,7 +72,7 @@ const FurnitureGallery = props => {
             </div>
             <div>
               <Menu
-                menuItems={menuItems}
+                menuItems={promoCategories.map(category => category.name)}
                 className={clsx(styles.menu, styles.active)}
                 doNotCollapse={true}
               />
