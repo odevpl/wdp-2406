@@ -57,6 +57,17 @@ const FurnitureGallery = props => {
     activeCategoryId.activeProductId
   );
 
+  const [fadeCategory, setFadeCategory] = useState('');
+  const [fadeSlide, setFadeSlide] = useState('');
+
+  const fadeCategoryChange = id => {
+    setFadeCategory(styles.fadeOut);
+    setTimeout(() => {
+      setActiveCategoryId(id);
+      setFadeCategory(styles.fadeIn);
+    }, 500);
+  };
+
   const products = activeCategory.products;
   let product = products.find(product => product.id === activeProductId);
   if (!product) {
@@ -80,10 +91,10 @@ const FurnitureGallery = props => {
                 className={clsx(styles.menu, styles.active)}
                 doNotCollapse={true}
                 selectedItemId={activeCategoryId}
-                setSelectedItemId={setActiveCategoryId}
+                setSelectedItemId={fadeCategoryChange}
               />
             </div>
-            <div>
+            <div className={clsx(styles.fade, fadeCategory)}>
               <ProductBox2 key={product.id} {...product} />
             </div>
             <SlideBar
@@ -92,7 +103,7 @@ const FurnitureGallery = props => {
               handleClick={setActiveProductId}
             />
           </div>
-          <div className='col-12 col-md-6'>
+          <div className='d-none d-md-block col-12 col-md-6'>
             <div className={clsx(styles.promotion)}>
               <img
                 src={`${process.env.PUBLIC_URL + '/images/sofas/sofa-2.webp'}`}
