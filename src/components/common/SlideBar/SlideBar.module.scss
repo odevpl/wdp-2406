@@ -1,0 +1,80 @@
+@import "../../../styles/settings.scss";
+
+$slidebar-height: 70px;
+
+.root {
+  margin: 10px 0 10px 0;
+  height: $slidebar-height;
+
+  .panelBar {
+    border-top: 1px solid $brandsbar-border-color;
+    border-bottom: 1px solid $brandsbar-border-color;
+    overflow: hidden;
+    position: relative;
+
+    button {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: $slidebar-height;
+      background-color: $brandsbar-arrow-bg-color;
+      color: $brandsbar-arrow-color;
+      font-size: 12px;
+      z-index: 10;
+    }
+    button:first-child {
+      top: 0;
+      left: 0;
+    }
+    button:last-child {
+      top: 0;
+      right: 0;
+    }
+    .slide {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: start;
+      width: fit-content;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      white-space: nowrap;
+      margin-left: 35px;
+
+      .brandIcon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 5px 0 0;
+        width: $slidebar-height;
+        height: $slidebar-height;
+        border: 1px solid $brandsbar-border-color;
+        position: relative;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: $slidebar-height;
+          height: $slidebar-height;
+          background-color: rgba(0, 0, 0, 0.45);
+          color: white;
+          align-items: center;
+          justify-content: center;
+          z-index: 10;
+        }
+        &.active .overlay {
+          display: none;
+        }
+      }
+    }
+  }
+}

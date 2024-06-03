@@ -1,0 +1,109 @@
+@import "../../../styles/settings.scss";
+@import "../../../styles/bootstrap.scss";
+
+.root {
+  position: relative;
+
+  .menuToggler {
+    position: relative;
+    border: 0;
+    color: $menu-link-text-color;
+    background-color: $menu-link-bg-color;
+    border-color: $menubar-link-border-color;
+    margin: 0;
+    &:hover {
+      color: $menu-link-hover-text-color;
+      background-color: $menu-link-hover-bg-color;
+      border-color: $menu-link-hover-border-color;
+    }
+    & .hamburger {
+      display: block;
+      font-size: 45px;
+    }
+  }
+  .menuToggler.desktop {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      background-color: $menu-bg-color;
+
+      li {
+        list-style: none;
+        display: flex;
+        width: 100%;
+        border-left: 4px solid $menu-link-border-color;
+        border-right: 4px solid $menu-link-border-color;
+
+        a {
+          color: $menu-link-text-color;
+          text-transform: uppercase;
+          font-size: 12px;
+          padding: 1rem;
+          text-decoration: none;
+          // display: flex;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+
+          font-weight: 500;
+          letter-spacing: 1px;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .menu.expanded {
+    display: block;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+
+    z-index: 10;
+  }
+
+  .menu.desktop {
+    display: flex;
+    position: relative;
+    ul {
+      flex-direction: row;
+      li {
+        display: flex;
+        border: 4px solid $menu-link-border-color;
+        border-bottom: 0;
+        border-left: 0;
+        border-right: 0;
+        a {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+.menu.desktop > ul > li,
+.menu > ul > li {
+  &:hover {
+    color: $menu-link-hover-text-color;
+    background-color: $menu-link-hover-bg-color;
+    border-color: $menu-link-hover-border-color;
+    a {
+      color: $menu-link-hover-text-color;
+    }
+  }
+
+  &.active {
+    color: $menu-link-active-text-color;
+    background-color: $menu-link-active-bg-color;
+    border-color: $menu-link-active-border-color;
+    a {
+      color: $menu-link-active-text-color;
+    }
+  }
+}
