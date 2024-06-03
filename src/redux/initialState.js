@@ -689,6 +689,16 @@ const initialState = {
       text4: '',
     },
   ],
+  feedbacks: [
+    {
+      id: 'feedback-1',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      name: 'John Smith',
+      occupation: 'Furniture Client',
+      image: process.env.PUBLIC_URL + '/images/feedbacks/feedback-1.jpg',
+    },
+  ],
 };
 
 export default initialState;

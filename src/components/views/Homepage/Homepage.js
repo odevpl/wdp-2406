@@ -10,7 +10,7 @@ import BrandsBar from '../../features/BrandsBar/BrandsBar';
 
 import FurnitureGallery from '../../features/FurnitureGallery/FurnitureGallery';
 import Promotions from '../../features/Promotions/Promotions';
-
+import Feedback from '../../features/Feedback/Feedback';
 
 const Homepage = () => (
   <div className={styles.root}>
@@ -19,6 +19,7 @@ const Homepage = () => (
     <NewFurniture />
     <FurnitureGallery />
     <BrandsBar />
+    <Feedback />
     <CompareStickyBar />
   </div>
 );
