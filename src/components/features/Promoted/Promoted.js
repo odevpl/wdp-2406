@@ -133,7 +133,7 @@ const Promoted = () => {
           >
             <div
               className={
-                'col-6 pt-1 fs-4 m-0 d-flex justify-content-center align-items-center text-center ' +
+                'col-6 pt-0 fs-3 m-0 d-flex justify-content-center align-items-center text-center ' +
                 styles.leftRight
               }
             >
@@ -141,7 +141,7 @@ const Promoted = () => {
             </div>
             <div
               className={
-                'col-6 pt-1 fs-4 m-0 d-flex justify-content-center align-items-center text-center ' +
+                'col-6 pt-0 fs-3 m-0 d-flex justify-content-center align-items-center text-center ' +
                 styles.leftRight
               }
             >
