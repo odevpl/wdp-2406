@@ -1,0 +1,25 @@
+@import "../../../styles/settings.scss";
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .circle_content {
+    text-align: center;
+  }
+  
+  .value {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .timeUnit {
+    font-size: 0.7rem;
+  }

@@ -3,11 +3,11 @@
 .root {
   background-color: $product-box-bg-color;
   border: 1px solid $product-box-border-color;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 
   .photo {
     position: relative;
-    padding: 80% 10px 0 10px;
+    padding: 80% 0 0 0;
     background: {
       color: $product-box-photo-bg-color;
       size: cover;
@@ -28,14 +28,41 @@
       padding: 30px 15px 5px 15px;
     }
 
-    .buttons {
+    .buttonsUp {
+      position:absolute;
+      top:40%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      color: $white;
+      background-color: $black;
       display: flex;
-      justify-content: space-between;
-      visibility: hidden;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden; 
+      padding:10px;
+      list-style: none;
+    
+    }
+
+    .buttonsDown {
+      position:absolute;
+      top:85%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      color: $white;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      visibility: hidden; 
+      
     }
   }
 
-  &:hover .photo .buttons {
+  &:hover .photo .buttonsDown{
+    visibility: visible;
+  }
+
+  &:hover .photo .buttonsUp{
     visibility: visible;
   }
 
@@ -97,12 +124,16 @@
 
   .oldPrice {
     font-size: 16px;
-    color: $dark-grey;
+    color: $dark-grey; 
     margin: auto 5px;
     text-decoration: line-through;
     text-decoration-color: $primary;
     text-decoration-thickness: 2px;
   }
+}
+
+.noDot {
+  list-style-type: none;
 }
 
 
