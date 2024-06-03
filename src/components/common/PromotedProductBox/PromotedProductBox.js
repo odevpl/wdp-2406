@@ -28,6 +28,7 @@ const PromotedProductBox = ({
   isCompare,
   oldPrice,
 }) => {
+  //TEMPORATY STATE FOR CircledText ITEMS
   const timerState = [
     {
       quantity: '10',
@@ -70,8 +71,8 @@ const PromotedProductBox = ({
     <div className={styles.root}>
       <div className={styles.photo} style={{ backgroundImage: `url(${image})` }}>
         <div className={styles.buttonsUp}>
-          <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> &nbsp;&nbsp;ADD TO
-          CART
+          <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon>
+          &nbsp;&nbsp;ADD TO CART
         </div>
         <div className={'w-100 ' + styles.buttonsDown}>
           {times.map(time => (

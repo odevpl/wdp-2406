@@ -35,22 +35,76 @@ const Promoted = () => {
   return (
     <div className='container'>
       <div className='row'>
-        <div className='col-4 d-flex flex-column p-0 m-0'>
-          <div className='d-flex row align-items-center bg-dark py-2 m-0'>
-            <div className={`bg-dark col-8 fw-bold ${styles.deals}`}>HOT DEALS</div>
+        <div
+          className='
+            col-4
+            d-flex
+            flex-column
+            p-0
+            m-0'
+        >
+          <div
+            className='
+              d-flex
+              row
+              align-items-center
+              bg-dark
+              py-2
+              m-0'
+          >
             <div
-              className={`bg-dark col-4 d-flex flex-row align-items-center justify-content-around m-0 ${styles.dots}`}
+              className={`
+                bg-dark
+                col-8
+                fw-bold
+                ${styles.deals}
+              `}
+            >
+              HOT DEALS
+            </div>
+            <div
+              className={`
+                bg-dark
+                col-4
+                d-flex
+                flex-row
+                align-items-center
+                justify-content-around
+                m-0
+                ${styles.dots}
+              `}
             >
               {dots}
             </div>
           </div>
-          <div className='h-100 p-0 m-0'>
+          <div
+            className='
+              h-100
+              p-0
+              m-0'
+          >
             <PromotedProductBox {...promotedProducts[currentPromoted]} />
           </div>
         </div>
 
-        <div className='col-8 row d-flex flex-row p-0 m-0 pl-4'>
-          <div className='col-12 w-100 position-relative p-0 m-0'>
+        <div
+          className='
+            col-8
+            row
+            d-flex
+            flex-row
+            p-0
+            m-0
+            pl-4'
+        >
+          <div
+            className='
+              col-12
+              w-100
+              position-relative
+              p-0
+              m-0'
+          >
             <img
               className={styles.img_cover}
               src={process.env.PUBLIC_URL + '/images/beds/bed-2.jpg'}
@@ -68,7 +122,15 @@ const Promoted = () => {
               <p className={styles.promo}>SAVE UP TO 50% OF ALL FURNITURE</p>
             </div>
           </div>
-          <div className='col-12 row d-flex flex-row p-0 m-0'>
+          <div
+            className='
+              col-12
+              row
+              d-flex
+              flex-row
+              p-0
+              m-0'
+          >
             <div
               className={
                 'col-6 pt-1 fs-4 m-0 d-flex justify-content-center align-items-center text-center ' +
