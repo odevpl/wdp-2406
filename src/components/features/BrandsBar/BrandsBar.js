@@ -64,7 +64,12 @@ const BrandsBar = () => {
       <div className={styles.root}>
         <div className='container'>
           <div className={styles.panelBar}>
-            <div className='row align-items-center justify-content-between'>
+            <div
+              className='
+                row
+                align-items-center
+                justify-content-between'
+            >
               <button onClick={handleLeftArrowClick}>
                 <FontAwesomeIcon icon={faChevronLeft} />
               </button>
