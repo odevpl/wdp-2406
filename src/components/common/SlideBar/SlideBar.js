@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getViewport } from '../../../redux/viewportRedux';
+import Swipeable from '../Swipeable/Swipeable';
 
 import styles from './SlideBar.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -55,44 +56,46 @@ const SlideBar = ({ items, activeId, handleClick, viewportAmounts }) => {
   return (
     <div className={styles.root}>
       <div className='container'>
-        <div className={styles.panelBar}>
-          <button
-            className=''
-            onClick={e => {
-              e.preventDefault();
-              moveLeft();
-            }}
-          >
-            <FontAwesomeIcon icon={faChevronLeft} />
-          </button>
-          <div className={clsx(styles.slide, styles.fade, fade)}>
-            {items.slice(currentFirstItemIndex, lastItemIndex).map(item => (
-              <div
-                key={item.id}
-                className={clsx(
-                  styles.brandIcon,
-                  activeId === item.id ? styles.active : ''
-                )}
-                onClick={e => {
-                  e.preventDefault();
-                  handleClick(item.id);
-                }}
-              >
-                <div className={styles.overlay}></div>
-                <img src={item.image} alt={item.name} />
-              </div>
-            ))}
+        <Swipeable leftAction={moveLeft} rightAction={moveRight}>
+          <div className={styles.panelBar}>
+            <button
+              className=''
+              onClick={e => {
+                e.preventDefault();
+                moveLeft();
+              }}
+            >
+              <FontAwesomeIcon icon={faChevronLeft} />
+            </button>
+            <div className={clsx(styles.slide, styles.fade, fade)}>
+              {items.slice(currentFirstItemIndex, lastItemIndex).map(item => (
+                <div
+                  key={item.id}
+                  className={clsx(
+                    styles.brandIcon,
+                    activeId === item.id ? styles.active : ''
+                  )}
+                  onClick={e => {
+                    e.preventDefault();
+                    handleClick(item.id);
+                  }}
+                >
+                  <div className={styles.overlay}></div>
+                  <img src={item.image} alt={item.name} />
+                </div>
+              ))}
+            </div>
+            <button
+              className=''
+              onClick={e => {
+                e.preventDefault();
+                moveRight();
+              }}
+            >
+              <FontAwesomeIcon icon={faChevronRight} />
+            </button>
           </div>
-          <button
-            className=''
-            onClick={e => {
-              e.preventDefault();
-              moveRight();
-            }}
-          >
-            <FontAwesomeIcon icon={faChevronRight} />
-          </button>
-        </div>
+        </Swipeable>
       </div>
     </div>
   );
