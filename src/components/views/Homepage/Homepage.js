@@ -7,6 +7,7 @@ import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 import CompareStickyBar from '../../features/CompareStickyBar/CompareStickyBar';
 import BrandsBar from '../../features/BrandsBar/BrandsBar';
+import Promoted from '../../features/Promoted/Promoted';
 
 import FurnitureGallery from '../../features/FurnitureGallery/FurnitureGallery';
 import Promotions from '../../features/Promotions/Promotions';
@@ -14,6 +15,7 @@ import Feedback from '../../features/Feedback/Feedback';
 
 const Homepage = () => (
   <div className={styles.root}>
+    <Promoted />
     <FeatureBoxes />
     <Promotions />
     <NewFurniture />
