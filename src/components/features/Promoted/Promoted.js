@@ -3,13 +3,14 @@ import { getNew } from '../../../redux/productsRedux.js';
 import { useSelector } from 'react-redux';
 import PromotedProductBox from '../../common/PromotedProductBox/PromotedProductBox';
 import styles from './Promoted.module.scss';
+import Swipeable from '../../common/Swipeable/Swipeable';
 
 const Promoted = () => {
   const promotedProducts = useSelector(state => getNew(state).slice(0, 5));
   const [currentPromoted, setCurrentPromoted] = useState(0);
 
-  const maxVisibleDotsBefore = 1;
-  const maxVisibleDotsAfter = 3;
+  const maxVisibleDotsBefore = 2;
+  const maxVisibleDotsAfter = 2;
   const firstVisibleDot = Math.max(currentPromoted - maxVisibleDotsBefore, 0);
   const lastVisibleDot = Math.min(
     currentPromoted + maxVisibleDotsAfter,
@@ -32,12 +33,25 @@ const Promoted = () => {
     }
   }
 
+  const swipeRight = () => {
+    if (currentPromoted > 0) {
+      setCurrentPromoted(currentPromoted - 1);
+    }
+  };
+
+  const swipeLeft = () => {
+    if (currentPromoted < promotedProducts.length - 1) {
+      setCurrentPromoted(currentPromoted + 1);
+    }
+  };
+
   return (
-    <div className='container'>
+    <div className='container pt-4'>
       <div className='row'>
         <div
           className='
-            col-4
+            col-12
+            col-md-4
             d-flex
             flex-column
             p-0
@@ -57,6 +71,8 @@ const Promoted = () => {
                 bg-dark
                 col-8
                 fw-bold
+                d-none
+                d-md-block
                 ${styles.deals}
               `}
             >
@@ -65,37 +81,46 @@ const Promoted = () => {
             <div
               className={`
                 bg-dark
-                col-4
+                m-0
+                py-3
+                py-md-0
+                col-12
+                col-md-4
                 d-flex
                 flex-row
                 align-items-center
                 justify-content-around
-                m-0
                 ${styles.dots}
               `}
             >
               {dots}
             </div>
           </div>
-          <div
-            className='
-              h-100
-              p-0
-              m-0'
-          >
-            <PromotedProductBox {...promotedProducts[currentPromoted]} />
-          </div>
+          <Swipeable leftAction={swipeLeft} rightAction={swipeRight}>
+            <div
+              className='
+                h-100
+                p-0
+                m-0'
+            >
+              <PromotedProductBox {...promotedProducts[currentPromoted]} />
+            </div>
+          </Swipeable>
         </div>
 
         <div
           className='
-            col-8
+            col-12
+            col-md-8
             row
             d-flex
             flex-row
             p-0
             m-0
-            pl-4'
+            pl-0
+            pl-md-4
+            pt-4
+            pt-md-0'
         >
           <div
             className='
