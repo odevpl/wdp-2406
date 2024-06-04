@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styles from './BrandsBar.module.scss';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,17 +15,22 @@ const BrandsBar = () => {
   const getViewportWidth = () =>
     document.documentElement.clientWidth || window.innerWidth;
 
-  const numberOfVisibleBrands = wide =>
-    Math.min(brandsLength, Math.max(1, Math.floor((wide - 220) / 150)));
+  const numberOfVisibleBrands = useCallback(
+    wide => Math.min(brandsLength, Math.max(1, Math.floor((wide - 220) / 150))),
+    [brandsLength]
+  );
 
-  const updateVisibleBrands = (startIndex, count) => {
-    const end = startIndex + count;
-    let visible = [];
-    for (let i = startIndex; i < end; i++) {
-      visible.push(brands[i % brandsLength]);
-    }
-    setVisibleBrands(visible);
-  };
+  const updateVisibleBrands = useCallback(
+    (startIndex, count) => {
+      const end = startIndex + count;
+      let visible = [];
+      for (let i = startIndex; i < end; i++) {
+        visible.push(brands[i % brandsLength]);
+      }
+      setVisibleBrands(visible);
+    },
+    [brands, brandsLength]
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -42,7 +47,7 @@ const BrandsBar = () => {
   useEffect(() => {
     const count = numberOfVisibleBrands(width);
     updateVisibleBrands(activeBrand, count);
-  }, [width, activeBrand, brands, numberOfVisibleBrands, updateVisibleBrands]);
+  }, [width, activeBrand, numberOfVisibleBrands, updateVisibleBrands]);
 
   const handleRightArrowClick = () => {
     setActiveBrand(prevActiveBrand => (prevActiveBrand + 1) % brands.length);
