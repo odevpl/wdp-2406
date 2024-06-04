@@ -3,25 +3,26 @@ import styles from './BrandsBar.module.scss';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import Swipeable from '../../common/Swipeable/Swipeable';
 
 const BrandsBar = () => {
   const brands = useSelector(state => state.brands);
   const [activeBrand, setActiveBrand] = useState(0);
   const [width, setWidth] = useState(window.innerWidth);
   const [visibleBrands, setVisibleBrands] = useState([]);
+  const brandsLength = brands.length;
 
   const getViewportWidth = () =>
     document.documentElement.clientWidth || window.innerWidth;
 
   const numberOfVisibleBrands = wide =>
-    Math.min(brands.length, Math.max(1, Math.floor((wide - 220) / 150)));
+    Math.min(brandsLength, Math.max(1, Math.floor((wide - 220) / 150)));
 
   const updateVisibleBrands = (startIndex, count) => {
     const end = startIndex + count;
-    const brandsCount = brands.length;
     let visible = [];
     for (let i = startIndex; i < end; i++) {
-      visible.push(brands[i % brandsCount]);
+      visible.push(brands[i % brandsLength]);
     }
     setVisibleBrands(visible);
   };
@@ -54,25 +55,27 @@ const BrandsBar = () => {
   };
 
   return (
-    <div className={styles.root}>
-      <div className='container'>
-        <div className={styles.panelBar}>
-          <div className='row align-items-center justify-content-between'>
-            <button onClick={handleLeftArrowClick}>
-              <FontAwesomeIcon icon={faChevronLeft} />
-            </button>
-            {visibleBrands.map(brand => (
-              <div key={brand.id} className={styles.brandIcon}>
-                <img src={brand.image} alt={brand.name} />
-              </div>
-            ))}
-            <button onClick={handleRightArrowClick}>
-              <FontAwesomeIcon icon={faChevronRight} />
-            </button>
+    <Swipeable leftAction={handleRightArrowClick} rightAction={handleLeftArrowClick}>
+      <div className={styles.root}>
+        <div className='container'>
+          <div className={styles.panelBar}>
+            <div className='row align-items-center justify-content-between'>
+              <button onClick={handleLeftArrowClick}>
+                <FontAwesomeIcon icon={faChevronLeft} />
+              </button>
+              {visibleBrands.map(brand => (
+                <div key={brand.id} className={styles.brandIcon}>
+                  <img src={brand.image} alt={brand.name} />
+                </div>
+              ))}
+              <button onClick={handleRightArrowClick}>
+                <FontAwesomeIcon icon={faChevronRight} />
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Swipeable>
   );
 };
 
