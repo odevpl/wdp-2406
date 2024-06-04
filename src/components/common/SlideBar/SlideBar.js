@@ -8,17 +8,11 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-const SlideBar = ({ items, activeId, handleClick }) => {
+const SlideBar = ({ items, activeId, handleClick, viewportAmounts }) => {
   const viewport = useSelector(getViewport);
 
   let amountOfItems = 6;
-  if (viewport === 'desktop') {
-    amountOfItems = 5;
-  } else if (viewport === 'tablet') {
-    amountOfItems = 3;
-  } else if (viewport === 'mobile') {
-    amountOfItems = 5;
-  }
+  amountOfItems = viewportAmounts ? viewportAmounts[viewport] : 6;
 
   const activeItemIndex = items.findIndex(item => item.id === activeId);
 
@@ -114,6 +108,7 @@ SlideBar.propTypes = {
   ),
   activeId: PropTypes.string,
   handleClick: PropTypes.func,
+  viewportAmounts: PropTypes.object,
 };
 
 export default SlideBar;

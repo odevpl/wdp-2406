@@ -110,6 +110,11 @@ const FurnitureGallery = props => {
                 items={products}
                 activeId={product.id}
                 handleClick={fadeProductChange}
+                viewportAmounts={{
+                  desktop: 5,
+                  tablet: 3,
+                  mobile: 5,
+                }}
               />
             </div>
           </div>
