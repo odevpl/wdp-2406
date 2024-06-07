@@ -36,12 +36,12 @@ $slidebar-height: 70px;
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: start;
-      width: fit-content;
+      justify-content: space-around;
       overflow-x: hidden;
       overflow-y: hidden;
       white-space: nowrap;
       margin-left: 35px;
+      margin-right: 35px;
 
       .brandIcon {
         display: flex;
@@ -76,5 +76,14 @@ $slidebar-height: 70px;
         }
       }
     }
+  }
+  .fade {
+    transition: opacity 0.5s;
+  }
+  .fadeIn {
+    opacity: 1;
+  }
+  .fadeOut {
+    opacity: 0;
   }
 }

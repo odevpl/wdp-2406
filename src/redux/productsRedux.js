@@ -15,6 +15,44 @@ export const getCompares = ({ products }) =>
 export const getCategory = ({ products, category }) =>
   products.filter(item => item.category === category);
 
+export const getTopRated = ({ products }) => products.filter(item => item.stars >= 4);
+
+export const getFeatured = ({ products }) =>
+  products.filter(item => item.featured === true);
+
+export const getTopSellers = ({ products }) =>
+  products.filter(item => item.topSeller === true);
+export const getSaleOff = ({ products }) =>
+  products.filter(item => item.promo === 'sale');
+
+export const getGalleryCategory = ({ products, categoryId }) => {
+  switch (categoryId) {
+    case 'featured':
+      return getFeatured({ products });
+    case 'topRated':
+      return getTopRated({ products });
+    case 'topSeller':
+      return getTopSellers({ products });
+    case 'saleOff':
+      return getSaleOff({ products });
+    default:
+      return [];
+  }
+};
+
+export const selectors = {
+  getAll,
+  getCount,
+  getNew,
+  getFavorites,
+  getCompares,
+  getCategory,
+  getTopRated,
+  getFeatured,
+  getTopSellers,
+  getSaleOff,
+};
+
 /* actions */
 const createActionName = actionName => `app/products/${actionName}`;
 const TOGGLE_FAVORITE_PRODUCT = createActionName('TOGGLE_FAVORITE_PRODUCT');

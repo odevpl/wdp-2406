@@ -112,4 +112,13 @@ $promotions-primary-text-color: white;
       }
     }
   }
+  .fade {
+    transition: opacity 0.5s;
+  }
+  .fadeIn {
+    opacity: 1;
+  }
+  .fadeOut {
+    opacity: 0;
+  }
 }

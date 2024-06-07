@@ -9,34 +9,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import styles from './Menu.module.scss';
 
-const Menu = ({ menuItems, className, doNotCollapse }) => {
-  const [selectedCategory, setSelectedCategory] = useState(menuItems[0]);
+const Menu = ({
+  menuItems,
+  selectedItemId,
+  setSelectedItemId,
+  className,
+  doNotCollapse,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const mobile = useSelector(state => state.viewport.type) === 'mobile';
 
-  const handleMenuClick = name => {
-    setSelectedCategory(name);
-    if (mobile) setIsExpanded(false);
-  };
-
-  const menuitem = object1 => {
-    const { name, key } = object1;
+  const menuItem = item => {
     return (
       <li
-        key={key}
+        key={item.id}
         onClick={e => {
           e.preventDefault();
-          handleMenuClick(name);
+          setSelectedItemId(item.id);
+          console.log('selectedItemId', selectedItemId);
+          if (mobile) setIsExpanded(false);
         }}
-        className={name === selectedCategory ? styles.active : ''}
+        className={item.id === selectedItemId ? styles.active : ''}
       >
-        <a href='#' key={name}>
-          {name}
-        </a>
+        <a href='#'>{item.name}</a>
       </li>
     );
   };
+
   return (
     <div className={clsx(styles.root)}>
       <div className={''}>
@@ -62,7 +62,8 @@ const Menu = ({ menuItems, className, doNotCollapse }) => {
         )}
       >
         <ul className={clsx('d-sm-flex', styles.menuList)}>
-          {menuItems.map(item => menuitem({ name: item, key: item }))}
+          {menuItems.map(item => menuItem(item)) // eslint-disable-line
+          }
         </ul>
       </div>
     </div>
@@ -70,7 +71,15 @@ const Menu = ({ menuItems, className, doNotCollapse }) => {
 };
 
 Menu.propTypes = {
-  menuItems: PropTypes.array,
+  // menuItems is an array of objects with the following structure: { id: string, name: string }
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+    })
+  ),
+  selectedItemId: PropTypes.string,
+  setSelectedItemId: PropTypes.func,
   className: PropTypes.string || PropTypes.list || PropTypes.object,
   doNotCollapse: PropTypes.bool,
   children: PropTypes.node,

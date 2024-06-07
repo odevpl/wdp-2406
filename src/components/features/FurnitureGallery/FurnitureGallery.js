@@ -4,7 +4,12 @@ import clsx from 'clsx';
 import styles from './FurnitureGallery.module.scss';
 
 import { useSelector } from 'react-redux';
-import { getAll } from '../../../redux/productsRedux';
+import {
+  getTopRated,
+  getFeatured,
+  getTopSellers,
+  getSaleOff,
+} from '../../../redux/productsRedux';
 
 import ProductBox2 from '../../common/ProductBox2/ProductBox2';
 import SlideBar from '../../common/SlideBar/SlideBar';
@@ -12,13 +17,71 @@ import Menu from '../../common/Menu/Menu';
 import Button from '../../common/Button/Button';
 
 const FurnitureGallery = props => {
-  const products = useSelector(getAll);
+  const topRated = useSelector(getTopRated);
+  const featured = useSelector(getFeatured);
+  const topSeller = useSelector(getTopSellers);
+  const saleOff = useSelector(getSaleOff);
 
-  const [activeProductId, setActiveProductId] = useState('aenean-ru-bristique-3');
+  const promoCategories = [
+    {
+      id: 'featured',
+      name: 'Featured',
+      products: featured ? featured : [],
+      activeProductId: featured ? featured[0].id : null,
+    },
+    {
+      id: 'topRated',
+      name: 'Top Rated',
+      products: topRated ? topRated : [],
+      activeProductId: topRated ? topRated[0].id : null,
+    },
+    {
+      id: 'topSeller',
+      name: 'Top Seller',
+      products: topSeller ? topSeller : [],
+      activeProductId: topSeller ? topSeller[0].id : null,
+    },
+    {
+      id: 'saleOff',
+      name: 'Sale Off',
+      products: saleOff ? saleOff : [],
+      activeProductId: saleOff ? saleOff[0].id : null,
+    },
+  ];
 
-  const product = products.find(product => product.id === activeProductId);
+  const [activeCategoryId, setActiveCategoryId] = useState('featured');
+  const activeCategory = promoCategories.find(
+    category => category.id === activeCategoryId
+  );
+  const [activeProductId, setActiveProductId] = useState(
+    activeCategoryId.activeProductId
+  );
 
-  const menuItems = ['Featured', 'Top Seller', 'Sale Off', 'Top Rated'];
+  const [fadeCategory, setFadeCategory] = useState('');
+  const [fadeProduct, setFadeProduct] = useState('');
+
+  const fadeCategoryChange = id => {
+    setFadeCategory(styles.fadeOut);
+    setTimeout(() => {
+      setActiveCategoryId(id);
+      setFadeCategory(styles.fadeIn);
+    }, 500);
+  };
+
+  const fadeProductChange = id => {
+    setFadeProduct(styles.fadeOut);
+    setTimeout(() => {
+      setActiveProductId(id);
+      setFadeProduct(styles.fadeIn);
+    }, 500);
+  };
+
+  const products = activeCategory.products;
+  let product = products.find(product => product.id === activeProductId);
+  if (!product) {
+    product = products[0];
+    setActiveProductId(product.id);
+  }
 
   return (
     <div className={styles.root}>
@@ -32,17 +95,30 @@ const FurnitureGallery = props => {
             </div>
             <div>
               <Menu
-                menuItems={menuItems}
+                menuItems={promoCategories}
                 className={clsx(styles.menu, styles.active)}
                 doNotCollapse={true}
+                selectedItemId={activeCategoryId}
+                setSelectedItemId={fadeCategoryChange}
               />
             </div>
-            <div>
-              <ProductBox2 key={activeProductId} {...product} />
+            <div className={clsx(styles.fade, fadeCategory, fadeProduct)}>
+              <ProductBox2 key={product.id} {...product} />
             </div>
-            <SlideBar items={products} activeId={activeProductId} />
+            <div className={clsx(styles.fade, fadeCategory)}>
+              <SlideBar
+                items={products}
+                activeId={product.id}
+                handleClick={fadeProductChange}
+                viewportAmounts={{
+                  desktop: 5,
+                  tablet: 3,
+                  mobile: 5,
+                }}
+              />
+            </div>
           </div>
-          <div className='col-12 col-md-6'>
+          <div className='d-none d-md-block col-12 col-md-6'>
             <div className={clsx(styles.promotion)}>
               <img
                 src={`${process.env.PUBLIC_URL + '/images/sofas/sofa-2.webp'}`}
